@@ -1,0 +1,10 @@
+.drawer {
+  @apply text-primary-foreground;
+  height: 100vh;
+  width: 0;
+  position: fixed;
+  top: 0;
+  right: 0;
+  @apply bg-primary/40;
+  transition: width 0.5s ease;
+}
