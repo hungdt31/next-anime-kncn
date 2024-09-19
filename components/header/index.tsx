@@ -21,8 +21,8 @@ export default function Header() {
     };
   }, []);
   return (
-    <div className={cn('flex items-center justify-around py-5 fixed w-full top-0',
-      show ? 'bg-header' : 'bg-transparent'
+    <div className={cn('flex items-center justify-around py-5 fixed w-full top-0 z-50',
+      show ? 'bg-header shadow' : 'bg-transparent'
     )}>
       <Logo/>
       <UHeader />

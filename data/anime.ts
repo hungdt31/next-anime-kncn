@@ -24,7 +24,7 @@ export const getAnimeInfo = async (id: string = '1') => {
 };
 
 // Using the example query "demon", and looking at the first page of results.
-export const getRecentAnime = async (page: number = 1, perPage: number = 20) => {
+export const getRecentAnime = async (page: number = 1, perPage: number = 12) => {
   const response = await client.get<RecentEpisodesResponse<RecentEpisode>>(
     '/recent-episodes',
     {

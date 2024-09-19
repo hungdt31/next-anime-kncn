@@ -8,7 +8,7 @@ import NextAuthProvider from "@/lib/next-auth-provider";
 import { RightDrawer } from "@/components/drawer";
 import { Toaster } from "@/components/ui/toaster";
 import Header from "@/components/header";
-import ScrollToTop from "@/components/common/ScrollToTop";
+import ScrollToTop from "@/components/common/scroll-to-top";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",

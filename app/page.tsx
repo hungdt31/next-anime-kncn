@@ -1,13 +1,14 @@
-"use client"
-import Image from "next/image";
-import { ModeToggle } from "@/components/mode-toggle";
-import { Button } from "@/components/ui/button";
-import Link from "next/link";
+"use client";
+import RecentAnime from "@/components/recent";
+import PopularAnime from "@/components/popular";
+import Slider from "@/components/slider";
 
 export default function Home() {
   return (
     <div className="h-[1200px]">
-      HOME PAGE
+      <Slider/>
+      <RecentAnime />
+      <PopularAnime />
     </div>
   );
 }
