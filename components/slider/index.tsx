@@ -72,7 +72,6 @@ export default function Slider() {
           key={data[activeIndex]?.id}
         />
       )}
-      <p>{data?.length}</p>
     </div>
   );
 }

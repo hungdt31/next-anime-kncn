@@ -6,7 +6,7 @@ export interface Title {
   romaji: string;
   english?: string;
   native: string;
-  userPreferred: string;
+  userPreferred?: string;
 }
 
 export interface Anime {

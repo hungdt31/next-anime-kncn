@@ -6,7 +6,7 @@ interface SlideProps {
 
 export const GenresItem: React.FC<SlideProps> = ({ item }) => {
   return (
-    <span className='border-foreground border-2 rounded-lg px-3 py-1 font-semibold text-[12px]'>
+    <span className='border-white border-2 rounded-lg px-3 py-1 font-semibold text-[12px]'>
       {item}
     </span>
   );

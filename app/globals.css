@@ -10,8 +10,6 @@
 
 @layer base {
   :root {
-    --width-default: min(1200px, 90vw);
-    --diameter: 1432px;
     --background: 0 0% 100%;
     --foreground: 0 0% 3.9%;
     --card: 0 0% 100%;
@@ -41,8 +39,6 @@
   }
 
   .dark {
-    --width-default: min(1200px, 90vw);
-    --diameter: 1432px;
     --background: 0 0% 3.9%;
     --foreground: 0 0% 98%;
     --card: 0 0% 3.9%;

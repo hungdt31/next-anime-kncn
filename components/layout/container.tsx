@@ -13,9 +13,7 @@ export default function Container({
   return (
     <div className="flex flex-col space-y-4 p-5">
       <TitlePrimary title={title} subTitle={subTitle} />
-      <div className="flex gap-3 justify-between overflow-x-auto">
-        {children}
-      </div>
+      {children}
     </div>
   )
 }

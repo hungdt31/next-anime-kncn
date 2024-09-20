@@ -31,7 +31,7 @@ const Slide: React.FC<SlideProps> = ({ tredingAnime, handleNextClick, handlePrev
     <div
       className={cn(
         styles.slide,
-        "lg:aspect-[3/1.4] md:aspect-[3/2] aspect-[1/1] w-full banner"
+        "lg:aspect-[3/1.4] md:aspect-[3/2] aspect-[1/1] w-full"
       )}
       style={{ backgroundImage: `url(${tredingAnime.cover})` }} // Using the inline style for background image
     >

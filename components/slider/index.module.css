@@ -25,6 +25,7 @@
   align-items: center;
   padding-top: 100px;
   padding-bottom: 50px;
+  position: relative;
   @apply justify-around;
   animation: slide 0.6s ease-in-out;
   flex-wrap: wrap;
@@ -63,6 +64,7 @@
 }
 .circle img {
   z-index: 2;
+  animation: rotate180 0.6s ease-in-out;
   @apply rounded-full;
   width: 250px;
   height: 250px;
@@ -70,19 +72,30 @@
 .info {
   padding: 10px;
   z-index: 3;
+  display: flex;
+  flex-direction: column;
 }
 .info h2 {
   max-width: 700px !important;  /* Đặt chiều rộng tối đa của phần tử */
-  max-height: 100px !important; /* Đặt chiều cao tối đa của phần tử */
   overflow: hidden !important;  /* Ẩn phần nội dung tràn ra ngoài */
   text-overflow: ellipsis !important; /* Hiển thị dấu ba chấm khi văn bản bị cắt */
-  white-space: nowrap !important;
 }
 .info .des {
   max-width: 700px;
-  max-height: 100px;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+}
+/* Điều chỉnh cho màn hình nhỏ hơn hoặc bằng 768px */
+@media (max-width: 768px) {
+  .info h2, .info .des {
+    max-width: 500px !important; /* Đặt max-width là 350px khi màn hình nhỏ hơn 768px */
+  }
+}
+@media (max-width: 567px) {
+  .info h2, .info .des {
+    max-width: 350px !important; /* Đặt max-width là 350px khi màn hình nhỏ hơn 768px */
+  }
 }
 .genres {
   display: flex;
@@ -96,5 +109,13 @@
   }
   100% {
     transform: translateX(0);
+  }
+}
+@keyframes rotate180 {
+  from {
+    transform: rotate(90deg); /* Bắt đầu từ 0 độ */
+  }
+  to {
+    transform: rotate(0deg); /* Xoay tới 360 độ */
   }
 }
