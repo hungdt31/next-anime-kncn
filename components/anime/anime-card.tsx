@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import path from "@/utils/path";
 import Link from "next/link";
 import React from "react";
@@ -19,11 +19,18 @@ const AnimeCard: React.FC<AnimeCardProps> = ({ image, title, id, color }) => {
   return (
     <Link href={path.anime(id)}>
       <div className={styles.card}>
-        <p>{getAnimeTitle(title)}</p>
-        <img
-          loading="lazy"
+        <LazyLoadImage
           src={image}
+          width="100%"
+          height="100%"
+          effect="blur"
+          wrapperProps={{
+            className: "transition duration-300 ease-in-out",
+          }}
         />
+        <div className={styles.info}>
+          <h4>{getAnimeTitle(title)}</h4>
+        </div>
       </div>
     </Link>
   );

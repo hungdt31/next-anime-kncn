@@ -5,6 +5,8 @@ import { AnimeCard } from "@/components/anime";
 import Container from "@/components/layout/container";
 import { SkeletonCards } from "../loading/skeleton";
 import ErrorQuery from "../common/error-query";
+import styles from "./index.module.css";
+import { Component } from "lucide-react";
 
 export default function PopularAnime() {
   const { data, isLoading, isError } = useQuery({
@@ -14,8 +16,8 @@ export default function PopularAnime() {
   if (isLoading) return <SkeletonCards />;
   if (isError) return <ErrorQuery />;
   return (
-    <div className="">
-      <Container title="Popular Anime">
+    <Container title="Popular Anime" icon={Component}>
+      <div className={styles.card}>
         {data?.map((anime: any) => (
           <AnimeCard
             key={anime.id}
@@ -26,7 +28,7 @@ export default function PopularAnime() {
             color={anime.color}
           />
         ))}
-      </Container>
-    </div>
+      </div>
+    </Container>
   );
 }

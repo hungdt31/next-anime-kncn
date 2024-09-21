@@ -53,7 +53,7 @@ export const getTrendingAnime = async (page: number = 1, perPage: number = 20) =
 };
 
 // Using the example query "demon", and looking at the first page of results.
-export const getPopularAnime = async (page: number = 1, perPage: number = 20) => {
+export const getPopularAnime = async (page: number = 1, perPage: number = 10) => {
   const response = await client.get<PopularResponse<PopularAnime>>(
     '/popular',
     {

@@ -7,6 +7,7 @@ import ErrorQuery from "../common/error-query";
 import { SkeletonCards } from "../loading/skeleton";
 import { RecentItem } from "./recent-item";
 import { RecentEpisode } from "@/types/anime/recent-anime-episodes";
+import { Cross } from "lucide-react";
 
 export default function RecentAnime() {
   const { data, isLoading, isError } = useQuery({
@@ -16,8 +17,8 @@ export default function RecentAnime() {
   if (isLoading) return <SkeletonCards />;
   if (isError) return <ErrorQuery />;
   return (
-    <Container title="Recent Episodes">
-      <div className="grid lg:grid-cols-4 gap-5 sm:grid-cols-2 md:grid-cols-3">
+    <Container title="Recent Episodes" icon={Cross}>
+      <div className="grid lg:grid-cols-4 gap-3 grid-cols-2 md:grid-cols-3">
         {data?.map((anime: RecentEpisode) => (
           <RecentItem
             key={anime.id}
