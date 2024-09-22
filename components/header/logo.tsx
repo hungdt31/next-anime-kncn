@@ -9,7 +9,11 @@ export const Logo = () => {
         <span>N</span>
         <span className="absolute top-0 left-2">N</span>
       </div>
-      <h3>Anime</h3>
+      <h3 
+      style={{
+        textShadow: "2px 2px 0px rgba(0, 0, 0, 0.2)"
+      }}
+      >ANIME</h3>
     </Link>
   );
 };
