@@ -24,12 +24,19 @@ const AnimeCard: React.FC<AnimeCardProps> = ({ image, title, id, color }) => {
           width="100%"
           height="100%"
           effect="blur"
+          alt={image}
           wrapperProps={{
             className: "transition duration-300 ease-in-out",
           }}
         />
         <div className={styles.info}>
-          <h4>{getAnimeTitle(title)}</h4>
+          <h5
+            style={{
+              color: color,
+            }}
+          >
+            {getAnimeTitle(title)}
+          </h5>
         </div>
       </div>
     </Link>

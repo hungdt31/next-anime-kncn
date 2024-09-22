@@ -8,6 +8,7 @@ import { TopAiringAnime, TopAiringAnimeResponse } from "@/types/anime/airing-sch
 import { SearchAnime, SearchAnimeResponse } from "@/types/anime/search";
 import { SearchAdvancedQuery } from "@/types/anime/advanced-search";
 import { AnimeEpisodeStreaming } from "@/types/anime/episode-streaming-links";
+import { convertQueryArrayParams } from "@/utils/constant";
 export const default_provider = "gogoanime";
 
 // Using the example id of "21" (one piece) and the query of "gogoanime"
@@ -109,7 +110,7 @@ export const searchAdvanced = async (queries?: SearchAdvancedQuery) => {
     },
   });
 
-  return response.data;
+  return response.data.results;
 };
 
 /*
@@ -122,35 +123,55 @@ export const getAnimeEpisodeStreaming = async (
   return response?.data
 };
 
+export const getCompletedAnime = async () => {
+  const response = await searchAdvanced({
+    type: "ANIME",
+    status: "FINISHED",
+    perPage: 10,
+    sort: convertQueryArrayParams(["SCORE_DESC"]),
+  });
+
+  return response;
+}
+
+export const getAnimeMovies = async () => {
+  const response = await searchAdvanced({
+    type: "ANIME",
+    perPage: 10,
+    sort: convertQueryArrayParams(["SCORE_DESC"]),
+    format: "MOVIE",
+  });
+
+  return response;
+}
+
+export const getAnimeSeason = async (season: string, year: number) => {
+  const response = await searchAdvanced({
+    season,
+    year,
+    perPage: 12,
+  });
+
+  return response;
+}
+
 export const getHomePage = async () => {
   const data = await Promise.all([
-    getRecentAnime(),
-    getTrendingAnime(),
-    getPopularAnime(),
-    searchAdvanced({
-      sort: ["FAVOURITES_DESC"],
-      type: "ANIME",
-    }),
-    searchAdvanced({
-      type: "ANIME",
-      status: "FINISHED",
-      sort: ["SCORE_DESC"],
-    }),
     searchAdvanced({
       season: "FALL",
-      perPage: 5,
+      perPage: 6,
     }),
     searchAdvanced({
       season: "WINTER",
-      perPage: 5,
+      perPage: 6,
     }),
     searchAdvanced({
       season: "SPRING",
-      perPage: 5,
+      perPage: 6,
     }),
     searchAdvanced({
       season: "SUMMER",
-      perPage: 5,
+      perPage: 6,
     }),
   ]);
 

@@ -16,7 +16,7 @@ export default function TitlePrimary({
   return (
     <div className="flex items-center gap-3">
       {Icon && <Icon color="red" />}
-      <div className="flex flex-col gap-3">
+      <div className="flex flex-col gap-3 uppercase">
         <h3
           style={{
             background: "linear-gradient(to right, #e15904, #bc2d2d)",

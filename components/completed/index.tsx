@@ -1,22 +1,22 @@
 "use client";
 import { useQuery } from "@tanstack/react-query";
-import { getPopularAnime } from "@/data/anime";
+import { getCompletedAnime } from "@/data/anime";
 import { AnimeCard } from "@/components/anime";
 import Container from "@/components/layout/container";
 import { SkeletonCards } from "../loading/skeleton";
 import ErrorQuery from "../common/error-query";
 import styles from "@/styles/cards.module.css";
-import { Component } from "lucide-react";
+import { ListCheck } from "lucide-react";
 
-export default function PopularAnime() {
+export default function CompletedAnime() {
   const { data, isLoading, isError } = useQuery({
-    queryKey: ["popular"],
-    queryFn: () => getPopularAnime(),
+    queryKey: ["Completed"],
+    queryFn: () => getCompletedAnime(),
   });
   if (isLoading) return <SkeletonCards />;
   if (isError) return <ErrorQuery />;
   return (
-    <Container title="Popular Anime" icon={Component}>
+    <Container title="Completed Anime" icon={ListCheck}>
       <div className={styles.card}>
         {data?.map((anime: any) => (
           <AnimeCard

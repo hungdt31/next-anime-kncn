@@ -63,7 +63,7 @@ export interface SearchAdvancedQuery {
   perPage?: number;
   season?: string;
   format?: Format;
-  sort?: Sort[];
+  sort?: string;
   genres?: Genres[];
   year?: number;
   status?: Status;
