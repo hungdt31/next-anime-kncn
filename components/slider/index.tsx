@@ -15,11 +15,14 @@ export default function Slider() {
 
   const [activeIndex, setActiveIndex] = useState(0);
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
+  const [progress, setProgress] = useState(0); // State để theo dõi tiến trình
+  const intervalDuration = 7000; // Thời gian chuyển đổi slide (7 giây)
 
   const startAutoChange = () => {
     intervalRef.current = setInterval(() => {
       setActiveIndex((prevIndex) => (data ? (prevIndex + 1) % data.length : 0));
-    }, 7000); // Change slide every 7 seconds
+      setProgress(0); // Reset tiến trình khi chuyển đổi slide
+    }, intervalDuration);
   };
 
   const stopAutoChange = () => {
@@ -29,7 +32,21 @@ export default function Slider() {
     }
   };
 
-  // Start auto-change when data is loaded
+  // Cập nhật progress
+  useEffect(() => {
+    if (data) {
+      const progressInterval = setInterval(() => {
+        setProgress((prevProgress) => {
+          if (prevProgress >= 100) return 0;
+          return prevProgress + (100 / (intervalDuration / 100)); // Tăng dần phần trăm
+        });
+      }, 100); // Cập nhật mỗi 100ms
+
+      return () => clearInterval(progressInterval);
+    }
+  }, [data, activeIndex]);
+
+  // Start auto-change khi dữ liệu đã load
   useEffect(() => {
     if (data) {
       startAutoChange();
@@ -37,7 +54,7 @@ export default function Slider() {
     return () => stopAutoChange();
   }, [data]);
 
-  // Restart auto-change when activeIndex changes
+  // Restart auto-change khi activeIndex thay đổi
   useEffect(() => {
     stopAutoChange();
     startAutoChange();
@@ -50,6 +67,7 @@ export default function Slider() {
     );
     stopAutoChange();
     startAutoChange();
+    setProgress(0); // Reset tiến trình khi chuyển slide
   };
 
   // Go to next slide
@@ -57,6 +75,7 @@ export default function Slider() {
     setActiveIndex((prevIndex) => (data ? (prevIndex + 1) % data.length : 0));
     stopAutoChange();
     startAutoChange();
+    setProgress(0); // Reset tiến trình khi chuyển slide
   };
 
   if (isLoading) return <SkeletonCards />;
@@ -72,6 +91,36 @@ export default function Slider() {
           key={data[activeIndex]?.id}
         />
       )}
+      {
+        // Hiển thị các dots
+        data && (
+          <div className={styles.dots}>
+            {data.map((_, index) => (
+              <button
+                key={index}
+                className={`${styles.dot} ${
+                  index === activeIndex ? styles.active : ""
+                }`}
+                onClick={() => {
+                  setActiveIndex(index);
+                  stopAutoChange();
+                  startAutoChange();
+                  setProgress(0); // Reset tiến trình khi chuyển slide
+                }}
+              ></button>
+            ))}
+          </div>
+        )
+      }
+      {
+        // Hiển thị thanh tiến trình
+        <div className={styles.progressBarContainer}>
+          <div
+            className={styles.progressBar}
+            style={{ width: `${progress}%` }}
+          ></div>
+        </div>
+      }
     </div>
   );
 }

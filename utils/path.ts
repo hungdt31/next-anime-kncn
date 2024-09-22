@@ -1,6 +1,6 @@
 const path = {
   watch: (id: string, _: string = "gogoanime") => {
-    return `/anime/watch/${id}`;
+    return `/anime/watch${id}`;
   },
   anime: (id: string) => {
     return `/anime/${id}`;

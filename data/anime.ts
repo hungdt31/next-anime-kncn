@@ -3,7 +3,7 @@ import { TrendingAnime, TrendingResponse } from "@/types/anime/trending";
 import { InfoResponse } from "@/types/anime/info";
 import { PopularAnime, PopularResponse } from "@/types/anime/popular";
 import { client } from "@/data/base";
-import { streaming } from "@/data/base";
+// import { streaming } from "@/data/base";
 import { TopAiringAnime, TopAiringAnimeResponse } from "@/types/anime/airing-schedule";
 import { SearchAnime, SearchAnimeResponse } from "@/types/anime/search";
 import { SearchAdvancedQuery } from "@/types/anime/advanced-search";
@@ -39,7 +39,7 @@ export const getRecentAnime = async (page: number = 1, perPage: number = 12) => 
 };
 
 // Using the example query "demon", and looking at the first page of results.
-export const getTrendingAnime = async (page: number = 1, perPage: number = 20) => {
+export const getTrendingAnime = async (page: number = 1, perPage: number = 10) => {
   const response = await client.get<TrendingResponse<TrendingAnime>>(
     '/trending',
     {
@@ -118,7 +118,7 @@ Using the example episode ID of  'spy-x-family-episode-1',
 export const getAnimeEpisodeStreaming = async (
   episodeId: string
 ): Promise<AnimeEpisodeStreaming> => {
-  const response = await streaming.get(`/watch/${episodeId}`)
+  const response = await client.get(`/watch/${episodeId}`)
   return response?.data
 };
 

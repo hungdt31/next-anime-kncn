@@ -4,6 +4,41 @@
   position: relative;
   color: white;
 }
+.dots {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+}
+.dot {
+  width: 10px;
+  height: 5px;
+  @apply rounded-lg;
+  background-color: #fff;
+  cursor: pointer;
+}
+.active {
+  @apply bg-primary;
+}
+/* Thanh chứa tiến trình */
+.progressBarContainer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 5px; /* Độ dày của thanh */
+  background-color: rgba(255, 255, 255, 0.2); /* Màu nền */
+  overflow: hidden;
+}
+
+/* Thanh tiến trình thực tế */
+.progressBar {
+  height: 100%;
+  background-color: #ff4500; /* Màu của thanh tiến trình */
+  transition: width 0.1s linear; /* Hiệu ứng chuyển động */
+}
 .slide::before {
   top:0;
   position: absolute;
@@ -16,6 +51,7 @@
   box-shadow: inset 0 100px 100px #000;
 }
 .slide {
+  animation: fade 1.5s ease-in-out;
   width: 100%;
   height: 100%;
   background-repeat: none;
@@ -27,7 +63,7 @@
   padding-bottom: 50px;
   position: relative;
   @apply justify-around;
-  animation: slide 0.6s ease-in-out;
+  /* animation: slide 0.6s ease-in-out; */
   flex-wrap: wrap;
 }
 .circle {
@@ -103,19 +139,28 @@
   @apply my-3;
   gap: 10px;
 }
-@keyframes slide {
+/* @keyframes slide {
   0% {
     transform: translateX(100px);
   }
   100% {
     transform: translateX(0);
   }
-}
+} */
 @keyframes rotate180 {
   from {
     transform: rotate(90deg); /* Bắt đầu từ 0 độ */
   }
   to {
     transform: rotate(0deg); /* Xoay tới 360 độ */
+  }
+}
+
+@keyframes fade {
+  from {
+    opacity: 0.5
+  }
+  to {
+    opacity: 1
   }
 }
