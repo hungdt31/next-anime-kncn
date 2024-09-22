@@ -10,10 +10,11 @@ import { useMutation } from "@tanstack/react-query";
 import { getAnimeSeason } from "@/data/anime";
 import { useEffect } from "react";
 import SeasonItem from "./season-item";
-import { get } from "http";
+import ErrorQuery from "../common/error-query";
+import { SkeletonCards } from "../loading/skeleton";
 
 export default function SeasonAnime() {
-  const { mutate, data, isError } = useMutation({
+  const { mutate, data, isError, isPending } = useMutation({
     mutationKey: ["season"],
     mutationFn: ({ season, year }: { season: string; year: number }) =>
       getAnimeSeason(season, year),
@@ -63,7 +64,8 @@ export default function SeasonAnime() {
               className="grid grid-cols-1 md:grid-cols-2 gap-7 lg:grid-cols-3"
             >
               {/* {selectedTab ? selectedTab.icon : "😋"} */}
-              {isError ? <div>Something went wrong...</div> : null}
+              {isError ? <ErrorQuery /> : null}
+              {isPending ? <SkeletonCards /> : null}
               {data?.map((anime: any) => (
                 <SeasonItem
                   color={anime.color}
