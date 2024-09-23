@@ -11,7 +11,7 @@ import { useEffect } from "react";
 import SeasonItem from "./season-item";
 import ErrorQuery from "../common/error-query";
 import { SkeletonCards } from "../loading/skeleton";
-import { Mountain } from "lucide-react";
+import { Group } from "lucide-react";
 import { SearchAnime } from "@/types/anime/search";
 
 export default function SeasonAnime() {
@@ -30,7 +30,7 @@ export default function SeasonAnime() {
     }
   }, [selectedTab, year]);
   return (
-    <Container title="Season Anime" icon={Mountain}>
+    <Container title="Collection" icon={Group}>
       <YearPickUp onChange={setYear} />
       <div className={styles.window}>
         <div className={styles.nav}>

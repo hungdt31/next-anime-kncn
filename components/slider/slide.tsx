@@ -25,7 +25,7 @@ const Slide: React.FC<SlideProps> = ({ tredingAnime, handleNextClick, handlePrev
     <div
       className={cn(
         styles.slide,
-        "lg:aspect-[3/1.4] md:aspect-[3/2] aspect-[1/1] w-full"
+        "lg:aspect-[3/1] md:aspect-[3/1.5] aspect-[1/1] w-full"
       )}
       style={{ backgroundImage: `url(${tredingAnime.cover})` }} // Using the inline style for background image
     >
@@ -45,9 +45,9 @@ const Slide: React.FC<SlideProps> = ({ tredingAnime, handleNextClick, handlePrev
         </div>
       </div>
       <div className={styles.info}>
-        <h2 style={{ color: tredingAnime?.color }}>
+        <h3 style={{ color: tredingAnime?.color }}>
           {getAnimeTitle(tredingAnime.title)}
-        </h2>
+        </h3>
         <div className="flex items-center space-x-4 md:mt-4 mt-3">
           {tredingAnime?.type && (
             <p className="flex items-center space-x-2 text-sm">
@@ -58,7 +58,7 @@ const Slide: React.FC<SlideProps> = ({ tredingAnime, handleNextClick, handlePrev
           {tredingAnime?.duration && (
             <p className="flex items-center space-x-2 text-sm">
               <AiFillClockCircle />
-              <span>{tredingAnime?.duration}m</span>
+              <span>{tredingAnime?.duration}</span>
             </p>
           )}
           {tredingAnime?.releaseDate && (

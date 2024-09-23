@@ -27,7 +27,6 @@ export default function MovieAnime() {
             type={anime.type}
             image={anime.image}
             id={anime.id}
-            color={anime.color}
           />
         ))}
       </div>

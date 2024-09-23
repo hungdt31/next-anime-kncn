@@ -23,20 +23,19 @@ export const RecentItem: React.FC<RecentItemProps> = ({
 }) => {
   return (
     <Link href={path.watch(episodeId)} className={styles.card}>
-      <LazyLoadImage
-        src={image}
-        alt={image}
-        width="100%"
-        height="100%"
-        effect="blur"
-        wrapperProps={{
-          className: "transition duration-300 ease-in-out",
-        }}
-      />
+      <div className={styles.component}>
+        <LazyLoadImage
+          src={image}
+          alt={image}
+          width="100%"
+          height="100%"
+          effect="blur"
+        />
+      </div>
       <CirclePlay className={styles.icon} />
       <div className={styles.des}>
-        <h4>{getAnimeTitle(title)}</h4>
-        <p className="font-thin">{episodeTitle}</p>
+        <p className={styles.title}>{getAnimeTitle(title)}</p>
+        <p className="font-thin text-[0.8rem]">{episodeTitle}</p>
       </div>
     </Link>
   );

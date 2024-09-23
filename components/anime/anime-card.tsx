@@ -10,31 +10,28 @@ interface AnimeCardProps {
   type: string;
   image: string;
   id: string;
-  color: string;
 }
 
-const AnimeCard: React.FC<AnimeCardProps> = ({ image, title, id, color }) => {
+const AnimeCard: React.FC<AnimeCardProps> = ({ image, title, id }) => {
   return (
     <Link href={path.anime(id)}>
+      
       <div className={styles.card}>
+      <div className="hover:scale-125 transition duration-300 ease-in-out w-full h-full">
         <LazyLoadImage
           src={image}
           width="100%"
           height="100%"
           effect="blur"
           alt={image}
-          wrapperProps={{
-            className: "transition duration-300 ease-in-out"
-          }}
         />
+        </div>
         <div className={styles.info}>
-          <h5
-            style={{
-              color: color,
-            }}
+          <p
+            className={styles.title}
           >
             {title}
-          </h5>
+          </p>
         </div>
       </div>
     </Link>

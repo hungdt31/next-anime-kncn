@@ -17,7 +17,7 @@ export default function TitlePrimary({
     <div className="flex items-center gap-3">
       {Icon && <Icon color="red" />}
       <div className="flex flex-col gap-3 uppercase">
-        <h3
+        <h4
           style={{
             background: "linear-gradient(to right, #e15904, #bc2d2d)",
             WebkitBackgroundClip: "text",
@@ -25,7 +25,7 @@ export default function TitlePrimary({
           }}
         >
           {title}
-        </h3>
+        </h4>
         {subTitle && <p className="font-thin text-red-500">{subTitle}</p>}
       </div>
     </div>

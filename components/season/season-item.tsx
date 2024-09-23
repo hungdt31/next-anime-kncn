@@ -23,7 +23,7 @@ export default function SeasonItem({
   return (
     <Link
       href={path.anime(id)}
-      className="grid grid-cols-2 aspect-[16/7] object-cover overflow-hidden gap-3"
+      className="grid grid-cols-2 aspect-[16/6] object-cover overflow-hidden gap-3"
     >
       <LazyLoadImage
         src={image}
@@ -34,13 +34,14 @@ export default function SeasonItem({
         className="w-[100%]"
       />
       <div className="flex gap-3 flex-col">
-        <h5
+        <p
           style={{
             color: color,
+            fontWeight: "bold"
           }}
         >
           {title}
-        </h5>
+        </p>
         <div className="flex items-center gap-5 font-thin">
           <div className="flex items-center gap-1">
             <CirclePlay />
