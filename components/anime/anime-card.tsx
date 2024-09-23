@@ -4,8 +4,6 @@ import Link from "next/link";
 import React from "react";
 import styles from "./anime-card.module.css";
 import { LazyLoadImage } from "react-lazy-load-image-component";
-import { getAnimeTitle } from "@/utils/constant";
-import { Title } from "@/types/utils";
 
 interface AnimeCardProps {
   title: string;

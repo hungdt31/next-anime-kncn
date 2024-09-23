@@ -12,6 +12,7 @@ import SeasonItem from "./season-item";
 import ErrorQuery from "../common/error-query";
 import { SkeletonCards } from "../loading/skeleton";
 import { Mountain } from "lucide-react";
+import { SearchAnime } from "@/types/anime/search";
 
 export default function SeasonAnime() {
   const { mutate, data, isError, isPending } = useMutation({
@@ -66,7 +67,7 @@ export default function SeasonAnime() {
               {/* {selectedTab ? selectedTab.icon : "😋"} */}
               {isError ? <ErrorQuery /> : null}
               {isPending ? <SkeletonCards /> : null}
-              {data?.map((anime: any) => (
+              {data?.map((anime: SearchAnime) => (
                 <SeasonItem
                   color={anime.color}
                   key={anime.id}

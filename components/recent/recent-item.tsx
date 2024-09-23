@@ -18,7 +18,6 @@ interface RecentItemProps {
 export const RecentItem: React.FC<RecentItemProps> = ({
   title,
   image,
-  id,
   episodeId,
   episodeTitle,
 }) => {

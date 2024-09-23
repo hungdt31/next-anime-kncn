@@ -67,7 +67,7 @@ export function RightDrawer() {
           .catch((error) => {
             toast({
               title: "Error",
-              description: "There was an issue signing you out.",
+              description: `There was an issue signing you out: ${error}`,
               variant: "destructive",
             });
           });
