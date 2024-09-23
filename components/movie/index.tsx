@@ -6,7 +6,7 @@ import Container from "@/components/layout/container";
 import { SkeletonCards } from "../loading/skeleton";
 import ErrorQuery from "../common/error-query";
 import styles from "@/styles/cards.module.css";
-import { ListCheck } from "lucide-react";
+import { Popcorn } from "lucide-react";
 
 export default function MovieAnime() {
   const { data, isLoading, isError } = useQuery({
@@ -16,7 +16,7 @@ export default function MovieAnime() {
   if (isLoading) return <SkeletonCards />;
   if (isError) return <ErrorQuery />;
   return (
-    <Container title="Anime Movie" icon={ListCheck}>
+    <Container title="Anime Movie" icon={Popcorn}>
       <div className={styles.card}>
         {data?.map((anime: any) => (
           <AnimeCard

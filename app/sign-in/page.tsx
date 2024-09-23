@@ -23,7 +23,7 @@ const SignInButton = () => {
   const { toast } = useToast();
   const search = useSearchParams();
   const [error, setError] = useState<string | null>(null);
-  const handleSignIn = async (provider: string) => {
+  const handleSignIn = (provider: string) => {
     signIn(provider, { callbackUrl: DEFAULT_LOGIN_REDIRECT })
       .then((result) => {
         if (result?.error) alert("Invalid Credentials!");
@@ -53,10 +53,10 @@ const SignInButton = () => {
         </CardHeader>
         <CardContent>
           <div className="flex gap-5 flex-wrap mb-5">
-            <Button onClick={async () => await handleSignIn("github")}>
+            <Button onClick={() => handleSignIn("github")}>
               <FaGithub className="mr-3" /> Sign In With GitHub
             </Button>
-            <Button onClick={async () => await handleSignIn("google")}>
+            <Button onClick={() => handleSignIn("google")}>
               <FaGoogle className="mr-3" /> Sign In With Google
             </Button>
           </div>

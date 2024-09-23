@@ -4,7 +4,6 @@ import { getAnimeTitle, AllSeason as tabs } from "@/utils/constant";
 import { motion, AnimatePresence } from "framer-motion";
 import styles from "./index.module.css";
 import Container from "../layout/container";
-import { Component } from "lucide-react";
 import { YearPickUp } from "./year-pick-up";
 import { useMutation } from "@tanstack/react-query";
 import { getAnimeSeason } from "@/data/anime";
@@ -12,6 +11,7 @@ import { useEffect } from "react";
 import SeasonItem from "./season-item";
 import ErrorQuery from "../common/error-query";
 import { SkeletonCards } from "../loading/skeleton";
+import { Mountain } from "lucide-react";
 
 export default function SeasonAnime() {
   const { mutate, data, isError, isPending } = useMutation({
@@ -29,7 +29,7 @@ export default function SeasonAnime() {
     }
   }, [selectedTab, year]);
   return (
-    <Container title="Season Anime" icon={Component}>
+    <Container title="Season Anime" icon={Mountain}>
       <YearPickUp onChange={setYear} />
       <div className={styles.window}>
         <div className={styles.nav}>

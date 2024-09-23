@@ -57,8 +57,8 @@ export function RightDrawer() {
     {
       title: "Log out",
       items: LogOut,
-      action: async () => {
-        await signOut()
+      action: () => {
+        signOut()
           .then(() => {
             toast({
               title: "Signed out",

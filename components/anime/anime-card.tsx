@@ -26,7 +26,7 @@ const AnimeCard: React.FC<AnimeCardProps> = ({ image, title, id, color }) => {
           effect="blur"
           alt={image}
           wrapperProps={{
-            className: "transition duration-300 ease-in-out",
+            className: "transition duration-300 ease-in-out"
           }}
         />
         <div className={styles.info}>
