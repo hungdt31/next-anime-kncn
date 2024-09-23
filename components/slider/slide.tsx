@@ -25,7 +25,7 @@ const Slide: React.FC<SlideProps> = ({ tredingAnime, handleNextClick, handlePrev
     <div
       className={cn(
         styles.slide,
-        "lg:aspect-[3/1] md:aspect-[3/1.5] aspect-[1/1] w-full"
+        "lg:aspect-[3/1.2] md:aspect-[3/1.5] aspect-[1/1] w-full"
       )}
       style={{ backgroundImage: `url(${tredingAnime.cover})` }} // Using the inline style for background image
     >
@@ -80,7 +80,8 @@ const Slide: React.FC<SlideProps> = ({ tredingAnime, handleNextClick, handlePrev
           ))}
         </div>
         <div
-          className={styles.des}
+          className={cn(styles.des,
+            "lg:line-clamp-3 md:line-clamp-2 line-clamp-1")}
           dangerouslySetInnerHTML={{ __html: tredingAnime.description }}
         />
         <div className="space-x-4 flex items-center mt-5">

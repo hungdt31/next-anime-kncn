@@ -15,7 +15,7 @@ export default function Container({
   children: React.ReactNode;
 }) {
   return (
-    <div className="flex flex-col space-y-4 p-5">
+    <div className="flex flex-col space-y-4 lg:p-5 px-3 py-5">
       <TitlePrimary title={title} subTitle={subTitle} icon={icon}/>
       {children}
     </div>
