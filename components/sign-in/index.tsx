@@ -14,7 +14,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { SquareArrowLeft } from "lucide-react";
 import { FaGithub } from "react-icons/fa6";
-import { FaGoogle } from "react-icons/fa6";
+import { FcGoogle } from "react-icons/fc";
 import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import { NoticeMessage } from "@/components/common/notice-message";
@@ -45,20 +45,20 @@ const SignInForm = () => {
     }
   }, [search]);
   return (
-    <div className="mt-[100px] flex justify-center">
+    <div className="mt-[100px] flex justify-center mx-2">
       <Card>
         <CardHeader>
           <CardTitle className="text-primary">LOGIN TO NEXT ANIME</CardTitle>
-          <CardDescription>Have a good experience</CardDescription>
+          <CardDescription>Manage your account, check notifications, comment on anime, and more.</CardDescription>
         </CardHeader>
         <CardContent>
-          <div className="flex gap-5 flex-wrap mb-5">
-            <Button onClick={() => handleSignIn("github")}>
-              <FaGithub className="mr-3" /> Sign In With GitHub
-            </Button>
-            <Button onClick={() => handleSignIn("google")}>
-              <FaGoogle className="mr-3" /> Sign In With Google
-            </Button>
+          <div className="flex gap-5 flex-wrap mb-5 justify-center">
+            <button onClick={() => handleSignIn("github")} className="border-2 dark:border-white dark:text-white dark:bg-black flex items-center p-3 shadow-md">
+              <FaGithub className="mr-3" /> Sign In with GitHub
+            </button>
+            <button onClick={() => handleSignIn("google")} className="border-2 dark:border-white dark:text-white dark:bg-black flex items-center p-3 shadow-md">
+              <FcGoogle className="mr-3" /> Sign In with Google
+            </button>
           </div>
           <NoticeMessage message={error} />
         </CardContent>
