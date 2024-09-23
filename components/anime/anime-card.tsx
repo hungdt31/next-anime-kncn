@@ -8,7 +8,7 @@ import { getAnimeTitle } from "@/utils/constant";
 import { Title } from "@/types/utils";
 
 interface AnimeCardProps {
-  title: Title;
+  title: string;
   type: string;
   image: string;
   id: string;
@@ -35,7 +35,7 @@ const AnimeCard: React.FC<AnimeCardProps> = ({ image, title, id, color }) => {
               color: color,
             }}
           >
-            {getAnimeTitle(title)}
+            {title}
           </h5>
         </div>
       </div>

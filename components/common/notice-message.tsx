@@ -6,7 +6,7 @@ import {
 import React from 'react'
 
 interface FormNoticeProps {
-  message?: any
+  message?: string | null
   type?: 'success' | 'error'
   children?: React.ReactNode
 }

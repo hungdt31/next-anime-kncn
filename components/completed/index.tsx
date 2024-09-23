@@ -7,6 +7,8 @@ import { SkeletonCards } from "../loading/skeleton";
 import ErrorQuery from "../common/error-query";
 import styles from "@/styles/cards.module.css";
 import { ListCheck } from "lucide-react";
+import { SearchAnime } from "@/types/anime/search";
+import { getAnimeTitle } from "@/utils/constant";
 
 export default function CompletedAnime() {
   const { data, isLoading, isError } = useQuery({
@@ -18,10 +20,10 @@ export default function CompletedAnime() {
   return (
     <Container title="Completed Anime" icon={ListCheck}>
       <div className={styles.card}>
-        {data?.map((anime: any) => (
+        {data?.map((anime: SearchAnime) => (
           <AnimeCard
             key={anime.id}
-            title={anime.title}
+            title={getAnimeTitle(anime.title) || ""}
             type={anime.type}
             image={anime.image}
             id={anime.id}

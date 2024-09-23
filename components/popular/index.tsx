@@ -7,6 +7,8 @@ import { SkeletonCards } from "../loading/skeleton";
 import ErrorQuery from "../common/error-query";
 import styles from "@/styles/cards.module.css";
 import { Component } from "lucide-react";
+import { getAnimeTitle } from "@/utils/constant";
+import type { PopularAnime } from "@/types/anime/popular";
 
 export default function PopularAnime() {
   const { data, isLoading, isError } = useQuery({
@@ -18,10 +20,10 @@ export default function PopularAnime() {
   return (
     <Container title="Popular Anime" icon={Component}>
       <div className={styles.card}>
-        {data?.map((anime: any) => (
+        {data?.map((anime: PopularAnime) => (
           <AnimeCard
             key={anime.id}
-            title={anime.title}
+            title={getAnimeTitle(anime.title) || ""}
             type={anime.type}
             image={anime.image}
             id={anime.id}

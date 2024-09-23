@@ -1,5 +1,4 @@
 "use client";
-import { UAvatar } from "../header/avatar";
 import { Button } from "../ui/button";
 import styles from "./index.module.css";
 import { X } from "lucide-react";
@@ -8,17 +7,17 @@ import { useWindowWidth } from "@react-hook/window-size";
 import { useEffect } from "react";
 import { InfoGroup } from "./group";
 import { FaCircleInfo } from "react-icons/fa6";
-import { LogOut } from "lucide-react";
+import { IoMdLogOut } from "react-icons/io";
 import { MdFollowTheSigns } from "react-icons/md";
 import { RiChatFollowUpFill } from "react-icons/ri";
 import { FaListUl } from "react-icons/fa";
 import { useToast } from "@/hooks/use-toast";
 
 const infoData = [
-  { title: "Personal information", items: FaCircleInfo, action: null },
-  { title: "List", items: FaListUl, action: null },
-  { title: "Following", items: MdFollowTheSigns, action: null },
-  { title: "Comment", items: RiChatFollowUpFill, action: null },
+  { title: "Personal information", items: FaCircleInfo, action: () => {} },
+  { title: "List", items: FaListUl, action: () => {} },
+  { title: "Following", items: MdFollowTheSigns, action: () => {} },
+  { title: "Comment", items: RiChatFollowUpFill, action: () => {} },
 ];
 
 const closeDrawer = () => {
@@ -56,7 +55,7 @@ export function RightDrawer() {
   const logOut = [
     {
       title: "Log out",
-      items: LogOut,
+      items: IoMdLogOut,
       action: () => {
         signOut()
           .then(() => {
@@ -89,11 +88,6 @@ export function RightDrawer() {
         {session?.user && (
           <div className="flex justify-between pl-3 items-center pr-5 pb-3">
             <h4 className="font-bold">Hello, {session.user.name}</h4>
-            {/* <UAvatar
-              size={10}
-              imgUrl={session.user.image as string}
-              alt={session.user.name as string}
-            /> */}
             <p>{session.user.email}</p>
           </div>
         )}

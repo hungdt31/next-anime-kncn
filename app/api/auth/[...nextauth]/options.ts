@@ -1,5 +1,4 @@
 import { AuthOptions } from "next-auth";
-import NextAuth from "next-auth/next";
 import Google from "next-auth/providers/google";
 import Github from "next-auth/providers/github";
 import { PrismaAdapter } from "@next-auth/prisma-adapter";

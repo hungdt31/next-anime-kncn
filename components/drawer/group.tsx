@@ -1,7 +1,9 @@
+import { IconType } from "react-icons/lib";
+
 type ArrayProps = {
   title: string;
-  items: any;
-  action: any;
+  items: IconType;
+  action: (() => void);
 }[];
 
 export const InfoGroup = ({

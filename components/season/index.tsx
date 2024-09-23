@@ -1,5 +1,5 @@
 "use client";
-import { use, useState } from "react";
+import { useState } from "react";
 import { getAnimeTitle, AllSeason as tabs } from "@/utils/constant";
 import { motion, AnimatePresence } from "framer-motion";
 import styles from "./index.module.css";

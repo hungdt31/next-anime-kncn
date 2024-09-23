@@ -1,14 +1,8 @@
-// import "swiper/css";
-// import "swiper/css/navigation";
-// import "swiper/css/pagination";
 "use client";
 import React from "react";
-// import { Swiper, SwiperSlide } from "swiper/react";
-// import Banners from "./banner";
-
 import Link from "next/link";
 import { BsFillPlayCircleFill, BsFillCalendarDateFill } from "react-icons/bs";
-import { AiFillClockCircle, AiOutlineRight } from "react-icons/ai";
+import { AiFillClockCircle } from "react-icons/ai";
 import { GrStatusDisabledSmall } from "react-icons/gr";
 import styles from "./index.module.css";
 import { TrendingAnime } from "@/types/anime/trending";
