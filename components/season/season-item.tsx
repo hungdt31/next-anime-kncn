@@ -39,6 +39,7 @@ export default function SeasonItem({
             color: color,
             fontWeight: "bold"
           }}
+          className="truncate"
         >
           {title}
         </p>
