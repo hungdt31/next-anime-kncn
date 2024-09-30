@@ -112,6 +112,7 @@
   flex-direction: column;
 }
 .info h3 {
+  white-space: nowrap !important;
   max-width: 700px !important;  /* Đặt chiều rộng tối đa của phần tử */
   overflow: hidden !important;  /* Ẩn phần nội dung tràn ra ngoài */
   text-overflow: ellipsis !important; /* Hiển thị dấu ba chấm khi văn bản bị cắt */
