@@ -12,8 +12,6 @@ import { MdFollowTheSigns } from "react-icons/md";
 import { RiChatFollowUpFill } from "react-icons/ri";
 import { FaListUl } from "react-icons/fa";
 import { useToast } from "@/hooks/use-toast";
-import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
-import { LazyLoadComponent } from "react-lazy-load-image-component";
 
 const infoData = [
   { title: "Personal information", items: FaCircleInfo, action: () => {} },

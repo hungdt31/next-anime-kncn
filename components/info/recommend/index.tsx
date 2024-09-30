@@ -18,7 +18,6 @@ export default function RecommendForYou({
     <div className={styles.cards}>
       {
         relationItems?.map((recommendItem: Recommendation, index: number) => {
-          const image : string = recommendItem?.image as string
           return (
             <AnimeCard
               key={index}

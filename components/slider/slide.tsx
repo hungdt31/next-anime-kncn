@@ -9,7 +9,6 @@ import { TrendingAnime } from "@/types/anime/trending";
 import { getAnimeTitle } from "@/utils/constant";
 import GenresItems from "../common/genres-items";
 import path from "@/utils/path";
-import { GenresItem } from "../common/genres-item";
 import { Button } from "../ui/button";
 import { IoMdArrowDropright } from "react-icons/io";
 import { cn } from "@/lib/utils";

@@ -1,7 +1,7 @@
 "use client";
 import React, { useEffect } from "react";
 import { getAnimeInfo } from "@/data/anime";
-import { useMutation, useQuery } from "@tanstack/react-query";
+import { useMutation } from "@tanstack/react-query";
 import { SkeletonCards } from "@/components/loading/skeleton";
 import ErrorQuery from "@/components/common/error-query";
 import Relation from "@/components/info/relation";

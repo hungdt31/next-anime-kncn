@@ -1,5 +1,4 @@
 import React from "react";
-import TitlePrimary from "@/components/common/title-primary";
 import { Character } from "@/types/utils";
 import CharacterCard from "@/components/character/character-card";
 
