@@ -1,4 +1,3 @@
-import { Trailer } from "./anime/random-anime";
 export interface Layout {
   children: React.ReactNode;
 }
@@ -25,4 +24,39 @@ export interface Anime {
   totalEpisodes: number;
   duration: number;
   type: string;
+}
+export interface NextAiringEpisode {
+  airingTime: number;
+  timeUntilAiring: number;
+  episode: number;
+}
+
+export interface VoiceActor {
+  id: number;
+  language: string;
+  name: Name;
+  image: string;
+}
+
+export interface Name {
+  first: string;
+  last?: string;
+  full: string;
+  native?: string;
+  userPreferred: string;
+}
+
+export interface Character {
+  id: number;
+  role: string;
+  name: Name;
+  image: string;
+  voiceActors: VoiceActor[];
+}
+
+export interface Trailer {
+  id: string;
+  site: string;
+  thumbnail: string;
+  thumbnailHash: string
 }

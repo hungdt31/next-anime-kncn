@@ -7,6 +7,7 @@ import { GrStatusDisabledSmall } from "react-icons/gr";
 import styles from "./index.module.css";
 import { TrendingAnime } from "@/types/anime/trending";
 import { getAnimeTitle } from "@/utils/constant";
+import GenresItems from "../common/genres-items";
 import path from "@/utils/path";
 import { GenresItem } from "../common/genres-item";
 import { Button } from "../ui/button";
@@ -74,11 +75,7 @@ const Slide: React.FC<SlideProps> = ({ tredingAnime, handleNextClick, handlePrev
             </p>
           )}
         </div>
-        <div className={styles.genres}>
-          {tredingAnime.genres?.map((genre, index) => (
-            <GenresItem key={index} item={genre} />
-          ))}
-        </div>
+        <GenresItems items={tredingAnime.genres} color="white"/>
         <div
           className={cn(styles.des,
             "lg:line-clamp-3 md:line-clamp-2 line-clamp-1")}

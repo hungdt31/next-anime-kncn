@@ -16,13 +16,14 @@ interface RecentItemProps {
   episodeTitle: string;
 }
 export const RecentItem: React.FC<RecentItemProps> = ({
+  id,
   title,
   image,
   episodeId,
   episodeTitle,
 }) => {
   return (
-    <Link href={path.watch(episodeId)} className={styles.card}>
+    <Link href={path.watch(id, episodeId)} className={styles.card}>
       <div className={styles.component}>
         <LazyLoadImage
           src={image}

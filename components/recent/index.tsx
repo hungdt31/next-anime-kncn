@@ -11,7 +11,7 @@ import { Cross } from "lucide-react";
 export default function RecentAnime() {
   const { data, isLoading, isError } = useQuery({
     queryKey: ["trend"],
-    queryFn: () => getRecentAnime(),
+    queryFn: () => getRecentAnime()
   });
   if (isLoading) return <SkeletonCards />;
   if (isError) return <ErrorQuery />;

@@ -1,8 +1,5 @@
-interface Trailer {
-  id: string;
-  site: string;
-  thumbnail: string;
-}
+import { Title } from "../utils";
+import { NextAiringEpisode, Character, Trailer } from "../utils";
 
 interface StartDate {
   year: number;
@@ -16,10 +13,10 @@ interface EndDate {
   day: number;
 }
 
-interface Recommendation {
+export interface Recommendation {
   id: string;
   malId: string;
-  title: string[];
+  title: Title;
   status: string;
   episodes: number;
   image: string;
@@ -28,18 +25,12 @@ interface Recommendation {
   type: string;
 }
 
-interface Character {
-  id: string;
-  role: string;
-  name: string[];
-  image: string;
-}
 
-interface Relation {
+export interface Relation {
   id: number;
   relationType: string;
   malId: number;
-  title: string[];
+  title: Title;
   status: string;
   episodes: number;
   image: string;
@@ -57,12 +48,13 @@ interface Episode {
 
 export interface InfoResponse {
   id: string;
-  title: string[];
+  title: Title;
   malId: number;
   trailer: Trailer;
   image: string;
   popularity: number;
   color: string;
+  cover: string;
   description: string;
   status: string;
   releaseDate: number;
@@ -73,8 +65,14 @@ export interface InfoResponse {
   season: string;
   studios: string[];
   type: string;
+  duration: number;
+  currentEpisode: number;
+  totalEpisodes: number;
+  countryOfOrigin: string;
   recommendations: Recommendation[];
   characters: Character[];
   relations: Relation[];
   episodes: Episode[];
+  nextAiringEpisode: NextAiringEpisode;
+  synonyms: string[];
 }

@@ -7,31 +7,38 @@ import { LazyLoadImage } from "react-lazy-load-image-component";
 
 interface AnimeCardProps {
   title: string;
-  type: string;
+  type?: string;
   image: string;
   id: string;
+  isResponsive?: boolean; // Biến xác định việc có sử dụng responsive hay không
+  isFixedWidth?: boolean; // Biến xác định việc có sử dụng chiều rộng cố định hay không
 }
 
-const AnimeCard: React.FC<AnimeCardProps> = ({ image, title, id }) => {
+const AnimeCard: React.FC<AnimeCardProps> = ({
+  image,
+  title,
+  id,
+  isResponsive = true,
+  isFixedWidth = true,
+}) => {
   return (
     <Link href={path.anime(id)}>
-      
-      <div className={styles.card}>
-      <div className="hover:scale-125 transition duration-300 ease-in-out w-full h-full">
-        <LazyLoadImage
-          src={image}
-          width="100%"
-          height="100%"
-          effect="blur"
-          alt={image}
-        />
+      <div
+        className={`${styles.card} ${isResponsive ? styles.responsive : ""} ${
+          isFixedWidth ? styles.fixedWidth : ""
+        }`}
+      >
+        <div className="hover:scale-125 transition duration-300 ease-in-out w-full h-full">
+          <LazyLoadImage
+            src={image}
+            width="100%"
+            height="100%"
+            effect="blur"
+            alt={image}
+          />
         </div>
         <div className={styles.info}>
-          <p
-            className={styles.title}
-          >
-            {title}
-          </p>
+          <p className={styles.title}>{title}</p>
         </div>
       </div>
     </Link>

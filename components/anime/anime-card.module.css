@@ -1,20 +1,25 @@
+/* Default styles for the card */
 .card {
   position: relative;
-  width: 150px;
   border-radius: 10px;
   overflow: hidden;
   aspect-ratio: 9/16;
   transition: all 0.3s ease 0s;
 }
 
+/* Áp dụng chiều rộng cố định */
+.fixedWidth {
+  width: 150px;
+}
+
 @media (min-width: 640px) {
-  .card {
+  .card.responsive {
     width: 200px;
   }
 }
 
 @media (min-width: 1024px) {
-  .card {
+  .card.responsive {
     width: 200px;
     aspect-ratio: 10/16;
   }

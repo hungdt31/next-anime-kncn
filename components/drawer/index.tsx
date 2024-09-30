@@ -12,6 +12,8 @@ import { MdFollowTheSigns } from "react-icons/md";
 import { RiChatFollowUpFill } from "react-icons/ri";
 import { FaListUl } from "react-icons/fa";
 import { useToast } from "@/hooks/use-toast";
+import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
+import { LazyLoadComponent } from "react-lazy-load-image-component";
 
 const infoData = [
   { title: "Personal information", items: FaCircleInfo, action: () => {} },
@@ -31,7 +33,7 @@ const openDrawer = () => {
   const windowWidth = window.innerWidth;
   if (drawer) {
     if (windowWidth > 1024) {
-      drawer.style.width = "30%";
+      drawer.style.width = "35%";
     } else if (windowWidth < 1024 && windowWidth > 768) {
       drawer.style.width = "40%";
     } else if (windowWidth < 768 && windowWidth > 640) {
@@ -86,9 +88,16 @@ export function RightDrawer() {
         </Button>
 
         {session?.user && (
-          <div className="flex justify-between pl-3 items-center pr-5 pb-3">
-            <h4 className="font-bold">Hello, {session.user.name}</h4>
-            <p>{session.user.email}</p>
+          <div className="p-5 flex gap-3 justify-around overflow-hidden">
+            <div>
+              <h4 className="font-bold">Hello, {session.user.name}</h4>
+              <p>{session.user.email}</p>
+            </div>
+            <img
+              className="w-20 h-20 rounded-full"
+              src={session.user.image as string}
+              alt={session.user.name as string}
+            />
           </div>
         )}
         <InfoGroup infoData={infoData} title="About you" />

@@ -133,12 +133,6 @@
     max-width: 350px !important; /* Đặt max-width là 350px khi màn hình nhỏ hơn 768px */
   }
 }
-.genres {
-  display: flex;
-  flex-wrap: wrap;
-  @apply my-3;
-  gap: 10px;
-}
 /* @keyframes slide {
   0% {
     transform: translateX(100px);
