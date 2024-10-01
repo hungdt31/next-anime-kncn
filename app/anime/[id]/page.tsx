@@ -47,7 +47,7 @@ export default function AnimeInfoPage({
           {data && (
             <TriggerMovie
               image={data.image}
-              url={data.episodes[0].id}
+              url={data?.episodes[0]?.id || ""}
               animeId={data?.id}
             />
           )}

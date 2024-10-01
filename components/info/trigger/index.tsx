@@ -27,7 +27,7 @@ export default function TriggerMovie({ image, url, animeId }: TriggerMovie) {
       >
         <BookmarkPlus className="opacity-40" /> <p>Add to List</p>
       </Button>
-      <Link href={url && animeId ? path.watch(animeId, url) : path.home}>
+      <Link href={url && animeId ? path.watch(animeId, url) : path.anime(animeId)}>
         <Button
           style={{
             backgroundColor: "#FF9A8B",
