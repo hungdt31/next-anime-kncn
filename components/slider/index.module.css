@@ -67,8 +67,8 @@
   flex-wrap: wrap;
 }
 .circle {
-  width: 500px;
-  height: 500px;
+  width: 450px;
+  aspect-ratio: 1/1;
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
@@ -81,8 +81,8 @@
   position: absolute;
   z-index:1;
   background-color: hsl(var(--primary));
-  width: 300px;
-  height: 300px;
+  width: 65%;
+  aspect-ratio: 1/1;
   opacity: 0.7;
   @apply rounded-full;
 }
@@ -94,16 +94,16 @@
   flex-wrap: wrap;
   background-color: #000;
   opacity: 0.5;
-  width: 500px;
-  height: 500px;
+  width: 100%;
+  aspect-ratio: 1/1;
   @apply rounded-full;
 }
 .circle img {
   z-index: 2;
   animation: rotate180 0.6s ease-in-out;
   @apply rounded-full;
-  width: 250px;
-  height: 250px;
+  width: 50%;
+  aspect-ratio: 1/1;
 }
 .info {
   padding: 10px;
@@ -127,6 +127,11 @@
 @media (max-width: 768px) {
   .info h3, .info .des {
     max-width: 500px !important; /* Đặt max-width là 350px khi màn hình nhỏ hơn 768px */
+  }
+}
+@media (max-width: 1024px) {
+  .circle {
+    width: 350px;
   }
 }
 @media (max-width: 567px) {

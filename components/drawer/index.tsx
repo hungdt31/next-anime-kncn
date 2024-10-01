@@ -86,16 +86,19 @@ export function RightDrawer() {
         </Button>
 
         {session?.user && (
-          <div className="p-5 flex gap-3 justify-around overflow-hidden">
+          <div className="p-5 flex gap-3 justify-around overflow-hidden flex-col sm:flex-row">
             <div>
               <h4 className="font-bold">Hello, {session.user.name}</h4>
               <p>{session.user.email}</p>
             </div>
-            <img
-              className="w-20 h-20 rounded-full"
-              src={session.user.image as string}
-              alt={session.user.name as string}
-            />
+            <div className="flex justify-end">
+              <img
+                loading="lazy"
+                className="w-20 h-20 rounded-full"
+                src={session.user.image as string}
+                alt={session.user.name as string}
+              />
+            </div>
           </div>
         )}
         <InfoGroup infoData={infoData} title="About you" />

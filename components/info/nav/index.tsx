@@ -37,7 +37,7 @@ export default function Nav({
 
   return (
     <div>
-      <div className="flex gap-7 justify-center relative">
+      <div className="flex justify-center relative gap-3 flex-wrap">
         {buttons.map((text) => (
           <button
             key={text}

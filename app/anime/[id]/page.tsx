@@ -51,7 +51,7 @@ export default function AnimeInfoPage({
               animeId={data?.id}
             />
           )}
-          <div className="flex flex-col space-y-3 mr-3">
+          <div className="flex flex-col space-y-3 mx-3">
             <p className="lg:text-3xl font-bold text-2xl">
               {data?.title && (
                 <p
