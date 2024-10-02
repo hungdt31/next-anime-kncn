@@ -1,0 +1,26 @@
+\documentclass[
+    % lang = en,
+    % author = Report author,
+    % subject = Xác suất thống kê,
+    % project = Bài tập lớn,
+    % passwd = newsecret,
+    % print = twoside,
+]{HCMUT-Report-Template}
+\usepackage{indentfirst}
+\usepackage{titlesec} % Để sử dụng \titleformat
+\usepackage{etoolbox}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,
+    urlcolor=blue
+}
+\usepackage{template/default}
+\usepackage{content/override}
+
+
+\begin{document}
+\input{template/titlepage}
+\input{template/summary}
+\input{content/content}
+\end{document}

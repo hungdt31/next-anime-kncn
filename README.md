@@ -38,6 +38,10 @@ Main Tech: [https://nextjs.org/](https://nextjs.org/), [https://www.prisma.io/](
 
 - `.env`: A file that stores environment variables, typically containing sensitive information like API keys, database settings, or other configuration variables for the project.
 
+## Report
+
+[KY_NANG_CHUYEN_NGHIEP.pdf](/docs/KY_NANG_CHUYEN_NGHIEP.pdf)
+
 ## Refference
 
 [https://github.com/an678-mhg/next-anime/tree/main](https://github.com/an678-mhg/next-anime/tree/main)
