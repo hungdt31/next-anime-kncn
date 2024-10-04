@@ -15,7 +15,7 @@ export default function TitlePrimary({
 }: TitlePrimaryProps) {
   return (
     <div className="flex items-center gap-3">
-      {Icon && <Icon color="orange" />}
+      {Icon && <Icon className="text-orange-700" />}
       <div className="flex flex-col gap-3 uppercase">
         <h4
           style={{

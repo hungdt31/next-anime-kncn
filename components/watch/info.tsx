@@ -32,7 +32,7 @@ export default function InfoWatch({ data }: InfoWatch) {
             backgroundImage:
               "linear-gradient(157deg, #FF4E90 0%, #FF2525 100%)",
           }}
-          className="font-semibold text-white absolute top-1 left-1 rounded-lg px-2"
+          className="font-semibold text-white absolute top-1 left-1 rounded-lg px-2 text-[14px]"
           href={path.anime(data.id)}
         >
           {data.season} - {data.startDate.year}

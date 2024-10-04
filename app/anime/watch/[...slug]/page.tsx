@@ -104,7 +104,8 @@ const WatchPage = ({
             className="w-full h-full"
             playerRef={playerRef}
           />
-          <h4 className="my-5">{formatEpisodeTitle(slug[1])}</h4>
+          <h4 className="mt-5">{formatEpisodeTitle(slug[1])}</h4>
+          <p className="border-l-4 border-foreground pl-3 mt-2">Total episodes: {animeInfo.totalEpisodes}</p>
           <div className="flex gap-3 py-5 overflow-scroll">
             {animeInfo.episodes.map((item: Episode, index: number) => {
               return (

@@ -5,7 +5,7 @@ import { AnimeCard } from "@/components/anime";
 import { getAnimeTitle } from "@/utils/constant";
 import styles from "@/styles/info.module.css"
 import Container from "@/components/layout/container";
-import { ChevronRight } from "lucide-react";
+import { CopyCheck } from 'lucide-react';
 
 interface RelationProps {
   relationItems: RelationItem[] | undefined;
@@ -14,7 +14,7 @@ export default function Relation({
   relationItems 
 }: RelationProps) {
   return (
-    <Container title="Relations for anime" icon={ChevronRight}>
+    <Container title="Relations for anime" icon={CopyCheck}>
     <div className={styles.cards}>
       {
         relationItems?.map((relationItem: RelationItem, index: number) => {

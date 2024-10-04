@@ -8,7 +8,7 @@ interface CharactersListProps {
 
 const CharactersList: React.FC<CharactersListProps> = ({ characters }) => {
   return (
-    <div className="p-4 bg-header">
+    <div className="p-4 bg-transparent">
       <div className="grid lg:grid-cols-4 gap-3 mt-5 md:grid-cols-2 grid-cols-1">
         {characters?.map((item) => (
           <CharacterCard character={item} key={item.id} />
