@@ -16,7 +16,7 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 
 const getDataFormatForPlayer = (videos: Source[]) => {
-  let rs = [];
+  const rs = [];
   for (const video of videos) {
     if (video.isM3U8) {
       rs.push({
@@ -55,7 +55,7 @@ const WatchPage = ({
     } else if (slug && slug.length === 1) {
       router.push(path.anime(slug[0]));
     }
-  }, [slug]);
+  }, [slug, mutate, router]);
 
   // Nếu đang tải dữ liệu, hiển thị SkeletonCards
   if (isPending) return <SkeletonCards />;
@@ -82,9 +82,9 @@ const WatchPage = ({
             playerRef={playerRef}
           />
           <div className="flex gap-3 py-5 flex-wrap">
-          {animeInfo.episodes.map((item: Episode) => {
+          {animeInfo.episodes.map((item: Episode, index: number) => {
             return (
-              <Link href={path.watch(slug[0], item.id)}>
+              <Link href={path.watch(slug[0], item.id)} key={index}>
                 <Button variant={item.id === slug[1] ? "default" : "secondary"}>
                   {item.number}
                 </Button>

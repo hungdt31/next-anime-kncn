@@ -29,7 +29,7 @@ export default function AnimeInfoPage({
   });
   useEffect(() => {
     mutate(params.id);
-  }, [params.id]);
+  }, [params.id, mutate]);
   if (isPending) return <SkeletonCards />;
   if (isError) return <ErrorQuery />;
   return (
