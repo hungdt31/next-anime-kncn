@@ -52,13 +52,13 @@ export default function Slider() {
       startAutoChange();
     }
     return () => stopAutoChange();
-  }, [data, startAutoChange]);
+  }, [data]);
 
   // Restart auto-change khi activeIndex thay đổi
   useEffect(() => {
     stopAutoChange();
     startAutoChange();
-  }, [activeIndex, data, startAutoChange]);
+  }, [activeIndex, data]);
 
   // Go to previous slide
   const handlePrevClick = () => {
