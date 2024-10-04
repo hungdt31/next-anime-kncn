@@ -37,7 +37,6 @@ const MoreLikeThis: React.FC<MoreLikeThisProps> = ({
         )}
         {moreLikeThis?.map((item) => (
           <ShowCaseItem
-            // @ts-ignore
             key={item.id}
             id={item?.id.toString()}
             image={item?.image}
