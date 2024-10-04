@@ -14,6 +14,11 @@ import Hls from "hls.js";
 import { Episode } from "@/types/utils";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import InfoWatch from "@/components/watch/info";
+import Container from "@/components/layout/container";
+import Comment from "@/components/comment";
+import { MessageCircleMore } from "lucide-react";
+import MoreLikeThis from "@/components/watch/more-like-this";
 
 const getDataFormatForPlayer = (videos: Source[]) => {
   const rs = [];
@@ -27,6 +32,24 @@ const getDataFormatForPlayer = (videos: Source[]) => {
   }
   return rs;
 };
+
+function formatEpisodeTitle(slug: string): string {
+  // Split the string by hyphens
+  const parts = slug.split("-");
+
+  // Remove the last part if it starts with "episode"
+  if (parts[parts.length - 1].startsWith("episode")) {
+    parts.pop();
+  }
+
+  // Capitalize the first letter of each word
+  const formattedTitle = parts
+    .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
+    .join(" ");
+
+  return formattedTitle;
+}
+
 const WatchPage = ({
   params,
 }: {
@@ -71,8 +94,8 @@ const WatchPage = ({
     ];
 
     return (
-      <div className="flex gap-5 mt-[80px] justify-center">
-        <div className="px-3 py-5">
+      <div className="mt-[80px] flex gap-5 py-5 px-3 md:flex-row flex-col justify-center">
+        <div className="md:w-2/3 lg:w-[70%]">
           <Player
             Hls={Hls}
             source={getDataFormatForPlayer(episodeStreaming.sources)}
@@ -81,19 +104,31 @@ const WatchPage = ({
             className="w-full h-full"
             playerRef={playerRef}
           />
-          <div className="flex gap-3 py-5 flex-wrap">
-          {animeInfo.episodes.map((item: Episode, index: number) => {
-            return (
-              <Link href={path.watch(slug[0], item.id)} key={index}>
-                <Button variant={item.id === slug[1] ? "default" : "secondary"}>
-                  {item.number}
-                </Button>
-              </Link>
-            );
-          })}
+          <h4 className="my-5">{formatEpisodeTitle(slug[1])}</h4>
+          <div className="flex gap-3 py-5 overflow-scroll">
+            {animeInfo.episodes.map((item: Episode, index: number) => {
+              return (
+                <Link href={path.watch(slug[0], item.id)} key={index}>
+                  <Button
+                    variant={item.id === slug[1] ? "default" : "secondary"}
+                  >
+                    {item.number}
+                  </Button>
+                </Link>
+              );
+            })}
+          </div>
+          <InfoWatch data={animeInfo} />
+          <Container title="Comments" icon={MessageCircleMore}>
+            <Comment />
+          </Container>
         </div>
+        <div className="md:w-1/3 lg:w-[20%]">
+          <MoreLikeThis
+            recommendations={animeInfo?.recommendations}
+            relations={animeInfo?.relations}
+          />
         </div>
-        
         {/* Có thể hiển thị thêm thông tin từ animeInfo và episodeStreaming */}
       </div>
     );

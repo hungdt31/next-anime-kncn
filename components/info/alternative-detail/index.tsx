@@ -33,7 +33,7 @@ const AlternativeAnimeInfoDetail: React.FC<AnimeInfoDetailProps> = ({ info }) =>
             <p className="line-clamp-1">{info?.countryOfOrigin}</p>
           </div>
           <div className="flex text-sm space-x-2">
-            <p className="font-semibold">Daration:</p>
+            <p className="font-semibold">Duration:</p>
             <p className="line-clamp-1">{info?.duration}</p>
           </div>
           <div className="flex text-sm space-x-2">

@@ -12,7 +12,7 @@ import { useEffect } from "react";
 import SeasonItem from "./season-item";
 import ErrorQuery from "../common/error-query";
 import { SkeletonCards } from "../loading/skeleton";
-import { Group } from "lucide-react";
+import { Shapes } from "lucide-react";
 import { SearchAnime } from "@/types/anime/search";
 
 export default function SeasonAnime() {
@@ -41,7 +41,7 @@ export default function SeasonAnime() {
   }, [mutationParams]);
   
   return (
-    <Container title="Collection" icon={Group}>
+    <Container title="Collection" icon={Shapes}>
       <YearPickUp onChange={setYear} />
       <div className={styles.window}>
         <div className={styles.nav}>
