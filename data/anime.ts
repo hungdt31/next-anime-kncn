@@ -145,11 +145,11 @@ export const getAnimeMovies = async () => {
   return response;
 }
 
-export const getAnimeSeason = async (season: string, year: number) => {
+export const getAnimeSeason = async (season: string, year: number, perPage: number = 9) => {
   const response = await searchAdvanced({
     season,
     year,
-    perPage: 12,
+    perPage,
   });
 
   return response;
@@ -177,3 +177,11 @@ export const getHomePage = async () => {
 
   return data;
 };
+
+export const getAnimeToWatch = async (id: string, ep: string) => {
+  const data = await Promise.all([
+    getAnimeInfo(id),
+    getAnimeEpisodeStreaming(ep)
+  ])
+  return data;
+}

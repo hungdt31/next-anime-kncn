@@ -1,7 +1,7 @@
 const path = {
   watch: (id: string, epId: string) => {
     if (epId[0] === '/') epId = epId.slice(1)
-    return `/anime/watch/${id}?ep=${epId}`;
+    return `/anime/watch/${id}/${epId}`;
   },
   anime: (id: string) => {
     return `/anime/${id}`;

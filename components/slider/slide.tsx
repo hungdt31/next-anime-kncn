@@ -74,7 +74,7 @@ const Slide: React.FC<SlideProps> = ({ tredingAnime, handleNextClick, handlePrev
             </p>
           )}
         </div>
-        <GenresItems items={tredingAnime.genres} color="white"/>
+        <GenresItems items={tredingAnime.genres.slice(0,3)} color="white"/>
         <div
           className={cn(styles.des,
             "lg:line-clamp-3 md:line-clamp-2 line-clamp-1")}

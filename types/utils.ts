@@ -60,3 +60,13 @@ export interface Trailer {
   thumbnail: string;
   thumbnailHash: string
 }
+
+export interface Episode {
+  id: string;
+  title: string;
+  description: string | null;
+  number: number;
+  image: string,
+  imageHash: string,
+  airDate: string | null
+}

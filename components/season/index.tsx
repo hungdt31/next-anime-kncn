@@ -1,7 +1,8 @@
 "use client";
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { getAnimeTitle, AllSeason as tabs } from "@/utils/constant";
 import { motion, AnimatePresence } from "framer-motion";
+import { useWindowWidth } from '@react-hook/window-size'
 import styles from "./index.module.css";
 import Container from "../layout/container";
 import { YearPickUp } from "./year-pick-up";
@@ -17,18 +18,28 @@ import { SearchAnime } from "@/types/anime/search";
 export default function SeasonAnime() {
   const { mutate, data, isError, isPending } = useMutation({
     mutationKey: ["season"],
-    mutationFn: ({ season, year }: { season: string; year: number }) =>
-      getAnimeSeason(season, year),
+    mutationFn: ({ season, year, perPage }: { season: string; year: number; perPage: number }) =>
+      getAnimeSeason(season, year, perPage)
   });
 
   const [selectedTab, setSelectedTab] = useState(tabs[0]);
   const [year, setYear] = useState(new Date().getFullYear());
+  const onlyWidth = useWindowWidth()
+  const mutationParams = useMemo(() => {
+    if (!selectedTab) return null;
+    if (onlyWidth > 1024) return { season: selectedTab.value, year, perPage: 9 };
+    else if (onlyWidth > 768) return { season: selectedTab.value, year, perPage: 8 };
+    else if (onlyWidth > 567) return { season: selectedTab.value, year, perPage: 6 };
+    return { season: selectedTab.value, year, perPage: 5 };
+  }, [selectedTab, year, onlyWidth]);
 
+  
   useEffect(() => {
-    if (selectedTab) {
-      mutate({ season: selectedTab.value, year });
+    if (mutationParams) {
+      mutate(mutationParams);
     }
-  }, [selectedTab, year]);
+  }, [mutationParams]);
+  
   return (
     <Container title="Collection" icon={Group}>
       <YearPickUp onChange={setYear} />

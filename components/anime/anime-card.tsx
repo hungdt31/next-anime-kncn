@@ -4,6 +4,7 @@ import Link from "next/link";
 import React from "react";
 import styles from "./anime-card.module.css";
 import { LazyLoadImage } from "react-lazy-load-image-component";
+// import Image from "next/image";
 
 interface AnimeCardProps {
   title: string;
@@ -36,6 +37,15 @@ const AnimeCard: React.FC<AnimeCardProps> = ({
             effect="blur"
             alt={image}
           />
+          {/* <Image
+            src={image}
+            width={500}
+            height={500}
+            placeholder="blur"
+            loading="lazy"
+            alt={title}
+            blurDataURL={image}
+          /> */}
         </div>
         <div className={styles.info}>
           <p className={styles.title}>{title}</p>

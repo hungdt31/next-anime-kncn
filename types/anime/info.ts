@@ -1,5 +1,5 @@
 import { Title } from "../utils";
-import { NextAiringEpisode, Character, Trailer } from "../utils";
+import { NextAiringEpisode, Character, Trailer, Episode } from "../utils";
 
 interface StartDate {
   year: number;
@@ -38,12 +38,6 @@ export interface Relation {
   type: string;
   cover: string;
   rating: number;
-}
-
-interface Episode {
-  id: string;
-  title: string;
-  episode: string;
 }
 
 export interface InfoResponse {
