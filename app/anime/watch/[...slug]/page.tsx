@@ -19,6 +19,8 @@ import Container from "@/components/layout/container";
 import Comment from "@/components/comment";
 import { MessageCircleMore } from "lucide-react";
 import MoreLikeThis from "@/components/watch/more-like-this";
+import { AiFillLike } from "react-icons/ai";
+import { PiBellRingingBold } from "react-icons/pi";
 
 const getDataFormatForPlayer = (videos: Source[]) => {
   const rs = [];
@@ -105,7 +107,14 @@ const WatchPage = ({
             playerRef={playerRef}
           />
           <h4 className="mt-5">{formatEpisodeTitle(slug[1])}</h4>
-          <p className="border-l-4 border-foreground pl-3 mt-2">Total episodes: {animeInfo.totalEpisodes}</p>
+          <div className="pl-3 mt-2 flex gap-3">
+            <Button className="rounded-full flex items-center bg-orange-700 hover:bg-orange-500 gap-2">
+              <p>Like</p> <AiFillLike />
+            </Button>
+            <Button className="rounded-full flex items-center gap-2">
+              <p>Follow</p> <PiBellRingingBold />
+            </Button>
+          </div>
           <div className="flex gap-3 py-5 overflow-scroll">
             {animeInfo.episodes.map((item: Episode, index: number) => {
               return (

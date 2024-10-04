@@ -7,8 +7,7 @@ import { Button } from "../ui/button";
 import Link from "next/link";
 import path from "@/utils/path";
 import { FaCaretRight } from "react-icons/fa6";
-import { AiFillLike } from "react-icons/ai";
-import { PiBellRingingBold } from "react-icons/pi";
+import { Share2 } from "lucide-react";
 
 interface InfoWatch {
   data: InfoResponse;
@@ -60,7 +59,7 @@ export default function InfoWatch({ data }: InfoWatch) {
         <GenresItems items={data.genres.slice(0, 3)} />
         <div
           dangerouslySetInnerHTML={{ __html: data.description }}
-          className="line-clamp-2"
+          className="line-clamp-3"
         />
         <div className="flex gap-3 flex-wrap">
           <Link href={path.anime(data.id)} className="hidden sm:block">
@@ -71,11 +70,8 @@ export default function InfoWatch({ data }: InfoWatch) {
               <p>Detail</p> <FaCaretRight />
             </Button>
           </Link>
-          <Button className="rounded-full flex items-center bg-orange-700 hover:bg-orange-500 gap-2">
-            <p>Like</p> <AiFillLike />
-          </Button>
-          <Button className="rounded-full flex items-center gap-2">
-            <p>Follow</p> <PiBellRingingBold />
+          <Button className="rounded-full flex items-center gap-2 bg-cyan-700 hover:bg-cyan-500">
+            <p>Share</p> <Share2 />
           </Button>
         </div>
       </div>
