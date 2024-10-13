@@ -35,11 +35,11 @@ const CommentItem: React.FC<CommentItemProps> = ({
   const { data } = useSession();
   const frame = useAppSelector(selectFrame);
   const dispatch = useAppDispatch();
-  const [loading, setLoading] = useState<Boolean>(false);
-  const [open, setOpen] = useState<Boolean>(false);
+  const [loading, setLoading] = useState<boolean>(false);
+  const [open, setOpen] = useState<boolean>(false);
   const [text, setText] = useState<string>("");
   const [mess, setMess] = useState<string>("");
-  const { data: comment, refetch } = useQuery({
+  const { data: comment } = useQuery({
     queryKey: ["comment", id],
     queryFn: () => getOneCommentForAnime(id),
   });

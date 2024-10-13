@@ -46,7 +46,7 @@ export async function GET(
 export async function POST(request: Request) {
   // Do whatever you want
   const body = await request.json();
-  const { text, userId, animeId, animeName, parentId } = body;
+  const { text, userId, animeId, parentId } = body;
   if (!text || !userId || !animeId)
     return NextResponse.json({ message: "Missing field ..." }, { status: 500 });
   // check usesrId and animeId is valid: is mongoose id

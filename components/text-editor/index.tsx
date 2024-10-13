@@ -45,7 +45,7 @@ export default function TextEditor({
     if (!editor) {
       return null;
     }
-    let buttons: ButtonProps[] = [];
+    const buttons: ButtonProps[] = [];
     for (const button of Buttons) {
       buttons.push(button(editor));
     }

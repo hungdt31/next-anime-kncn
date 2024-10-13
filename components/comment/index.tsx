@@ -69,6 +69,8 @@ const RecursiveComment = React.memo(
   }
 );
 
+RecursiveComment.displayName = "RecursiveComment";
+
 export default function Comment({ id }: CommentProps) {
   const { data: session } = useSession();
   const dispatch = useAppDispatch();

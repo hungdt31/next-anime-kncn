@@ -1,5 +1,3 @@
-import { Skeleton } from "@/components/ui/skeleton";
-
 export function SkeletonCards() {
   // Array to dynamically create the skeletons, in this case, 3 skeleton cards
   const skeletonArray = Array(3).fill(0);
