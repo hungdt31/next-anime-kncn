@@ -34,12 +34,12 @@ const RecursiveComment = React.memo(
     const {
       data: comments = [],
       isLoading,
-      isError,
+      isError
     } = useQuery({
       queryKey: ["comments", id, parentId],
       queryFn: () => getCommentForAnime(id, parentId),
-      refetchInterval: 5000,
-      enabled: showMore || depth === 0, // Only fetch data when showMore is true or at the root level
+      // refetchInterval: 5000,
+      enabled: showMore || depth == 0 // Only fetch data when showMore is true or at the root level
     });
 
     return (

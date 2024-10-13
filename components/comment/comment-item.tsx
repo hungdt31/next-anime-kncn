@@ -39,24 +39,21 @@ const CommentItem: React.FC<CommentItemProps> = ({
   const [open, setOpen] = useState<boolean>(false);
   const [text, setText] = useState<string>("");
   const [mess, setMess] = useState<string>("");
-  const { data: comment } = useQuery({
+  const { data: comment, refetch } = useQuery({
     queryKey: ["comment", id],
     queryFn: () => getOneCommentForAnime(id),
+    enabled: !showMore
   });
   const deleteMutation = useMutation({
     mutationFn: DeleteComment,
-    onSuccess: () => {
-      setMess("Removed");
-      setTimeout(async() => {
-        await queryClient.invalidateQueries({
-          queryKey: ["comments", animeId, id], // Chỉnh đúng queryKey
-        });
-      }, 3000);
+    onSuccess: async () => {
+      setMess("Removed");  
     },
   });
   const postMutation = useMutation({
     mutationFn: CreateNewComment,
-    onSuccess: async () => {
+    onSuccess: async() => {
+      refetch()
       await queryClient.invalidateQueries({
         queryKey: ["comments", animeId, id], // Chỉnh đúng queryKey
       });
