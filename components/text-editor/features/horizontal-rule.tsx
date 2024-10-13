@@ -4,7 +4,6 @@ import { ButtonProps, checkVariant } from '@/components/text-editor/button-props
 
 export const HorizontalRuleButton = (editor: Editor): ButtonProps => ({
   label: <MdOutlineHorizontalRule />,
-  // @ts-expect-error - Suppress the TypeScript error here
   onClick: () => editor.chain().focus().setHorizontalRule().run(),
   disabled: false,
   variant: checkVariant(editor, "horizontalRule")

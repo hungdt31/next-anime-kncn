@@ -4,9 +4,7 @@ import { ButtonProps, checkVariant } from '@/components/text-editor/button-props
 
 export const BoldButton = (editor: Editor): ButtonProps => ({
   label: <FaBold/>,
-  // @ts-expect-error - Suppress the TypeScript error here
   onClick: () => editor.chain().focus().toggleBold().run(),
-  // @ts-expect-error - Suppress the TypeScript error here
   disabled: !editor.can().chain().focus().toggleBold().run(),
   variant: checkVariant(editor, "bold")
 });

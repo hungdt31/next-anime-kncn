@@ -4,9 +4,7 @@ import { ButtonProps, checkVariant } from '@/components/text-editor/button-props
 
 export const StrikeButton = (editor: Editor): ButtonProps => ({
   label: <FaStrikethrough/>,
-  // @ts-expect-error - Suppress the TypeScript error here
   onClick: () => editor.chain().focus().toggleStrike().run(),
-  // @ts-expect-error - Suppress the TypeScript error here
   disabled: !editor.can().chain().focus().toggleStrike().run(),
   variant: checkVariant(editor, "strike"),
 });

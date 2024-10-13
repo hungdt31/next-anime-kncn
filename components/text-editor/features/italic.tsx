@@ -4,9 +4,7 @@ import { ButtonProps, checkVariant } from '@/components/text-editor/button-props
 
 export const ItalicButton = (editor: Editor): ButtonProps => ({
   label: <FaItalic />,
-  // @ts-expect-error - Suppress the TypeScript error here
   onClick: () => editor.chain().focus().toggleItalic().run(),
-  // @ts-expect-error - Suppress the TypeScript error here
   disabled: !editor.can().chain().focus().toggleItalic().run(),
   variant: checkVariant(editor, "italic"),
 });
