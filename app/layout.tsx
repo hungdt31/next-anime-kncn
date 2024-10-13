@@ -8,6 +8,7 @@ import NextAuthProvider from "@/lib/next-auth-provider";
 import { RightDrawer } from "@/components/drawer";
 import { Toaster } from "@/components/ui/toaster";
 import Header from "@/components/header";
+import ReduxProvider from "@/hooks/redux-provider";
 import ScrollToTop from "@/components/common/scroll-to-top";
 import "react-lazy-load-image-component/src/effects/blur.css";
 import 'react-lite-youtube-embed/dist/LiteYouTubeEmbed.css'
@@ -47,6 +48,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
+          <ReduxProvider>
           <NextAuthProvider>
             <ReactQueryConfig>
               <NextNProgressClient />
@@ -57,6 +59,7 @@ export default function RootLayout({
               <Toaster/>
             </ReactQueryConfig>
           </NextAuthProvider>
+          </ReduxProvider>
         </ThemeProvider>
       </body>
     </html>

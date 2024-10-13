@@ -2,14 +2,16 @@ import { RecentEpisode, RecentEpisodesResponse } from "@/types/anime/recent-anim
 import { TrendingAnime, TrendingResponse } from "@/types/anime/trending";
 import { InfoResponse } from "@/types/anime/info";
 import { PopularAnime, PopularResponse } from "@/types/anime/popular";
-import { client } from "@/data/base";
+import { client, service } from "@/data/base";
 // import { streaming } from "@/data/base";
 import { TopAiringAnime, TopAiringAnimeResponse } from "@/types/anime/airing-schedule";
 import { SearchAnime, SearchAnimeResponse } from "@/types/anime/search";
 import { SearchAdvancedQuery } from "@/types/anime/advanced-search";
 import { AnimeEpisodeStreaming } from "@/types/anime/episode-streaming-links";
 import { convertQueryArrayParams } from "@/utils/constant";
+import { CommentResponse } from "@/types/utils";
 export const default_provider = "gogoanime";
+import { Comment } from "@/types/utils";
 
 // Using the example id of "21" (one piece) and the query of "gogoanime"
 export const getAnimeInfo = async (id: string = '1') => {
@@ -185,3 +187,23 @@ export const getAnimeToWatch = async (id: string, ep: string) => {
   ])
   return data;
 }
+
+export const getCommentForAnime = async (animeId: string, parentId: string) => {
+  const response = await service.get<CommentResponse>("/comment", {
+    params: {
+      parentId,
+      animeId
+    }
+  })
+  return response.data.data;
+}
+
+export const getOneCommentForAnime = async (id: string) => {
+  const response = await service.get<Comment>("/comment/one", {
+    params: {
+      id
+    }
+  })
+  return response.data;
+}
+

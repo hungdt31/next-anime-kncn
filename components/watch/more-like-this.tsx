@@ -12,13 +12,13 @@ const MoreLikeThis: React.FC<MoreLikeThisProps> = ({
   recommendations,
   relations,
 }) => {
-  const [selectType, setSelectType] = useState("recommendations");
-  const moreLikeThis = selectType === "related" ? relations : recommendations;
+  const [selectType, setSelectType] = useState("Recommendations");
+  const moreLikeThis = selectType === "Related" ? relations : recommendations;
 
   return (
     <div className="lg:w-[300px] w-full lg:pt-0 p-4">
       <div className="space-x-4">
-        {["recommendations", "related"].map((item) => (
+        {["Recommendations", "Related"].map((item) => (
           <Button
             variant={selectType == item ? "default" : "secondary"}
             key={item}

@@ -70,3 +70,26 @@ export interface Episode {
   imageHash: string,
   airDate: string | null
 }
+interface User {
+  id: string;
+  name: string;
+  image: string;
+}
+export interface Comment {
+  id: string;
+  text: string;
+  name: string;
+  animeId: string,
+  animeName: string,
+  user: User;
+  parentId: string;
+  children: Comment[]
+  _count: {
+    children: number,
+    likes: number
+  }
+  createdAt: Date
+}
+export interface CommentResponse {
+  data: Comment[];
+}

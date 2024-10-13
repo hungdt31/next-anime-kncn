@@ -2,16 +2,27 @@ import { Skeleton } from "@/components/ui/skeleton";
 
 export function SkeletonCards() {
   // Array to dynamically create the skeletons, in this case, 3 skeleton cards
-  const skeletonArray = Array(3).fill(0); 
+  const skeletonArray = Array(3).fill(0);
 
   return (
-    <div className="flex gap-5 my-7 justify-center flex-wrap">
+    <div className="flex gap-5 my-[80px] justify-center flex-wrap">
       {skeletonArray.map((_, index) => (
-        <div key={index} className="flex flex-col space-y-3">
-          <Skeleton className="h-[125px] w-[250px] rounded-xl" />
-          <div className="space-y-2">
-            <Skeleton className="h-4 w-[250px]" />
-            <Skeleton className="h-4 w-[200px]" />
+        <div
+          key={index}
+          className="border border-slate-500 shadow rounded-md p-4 max-w-sm w-full mx-auto"
+        >
+          <div className="animate-pulse flex space-x-4">
+            <div className="rounded-full bg-slate-700 h-10 w-10"></div>
+            <div className="flex-1 space-y-6 py-1">
+              <div className="h-2 bg-slate-700 rounded"></div>
+              <div className="space-y-3">
+                <div className="grid grid-cols-3 gap-4">
+                  <div className="h-2 bg-slate-700 rounded col-span-2"></div>
+                  <div className="h-2 bg-slate-700 rounded col-span-1"></div>
+                </div>
+                <div className="h-2 bg-slate-700 rounded"></div>
+              </div>
+            </div>
           </div>
         </div>
       ))}

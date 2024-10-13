@@ -21,6 +21,8 @@ import { MessageCircleMore } from "lucide-react";
 import MoreLikeThis from "@/components/watch/more-like-this";
 import { AiFillLike } from "react-icons/ai";
 import { PiBellRingingBold } from "react-icons/pi";
+import { useAppSelector, useAppDispatch } from "@/hooks";
+import { toggleFrame, selectFrame } from "@/hooks/slices/use-isframe";
 
 const getDataFormatForPlayer = (videos: Source[]) => {
   const rs = [];
@@ -62,7 +64,8 @@ const WatchPage = ({
   const { slug } = params || {};
   const router = useRouter();
   const playerRef = useRef<HTMLVideoElement | null>(null);
-
+  const dispatch = useAppDispatch();
+  const frame = useAppSelector(selectFrame);
   // Sử dụng useMutation để lấy dữ liệu từ API
   const { data, mutate, isPending, isError } = useMutation({
     mutationKey: ["watch"],
@@ -98,16 +101,24 @@ const WatchPage = ({
     return (
       <div className="mt-[80px] flex gap-5 py-5 px-3 md:flex-row flex-col justify-center">
         <div className="md:w-2/3 lg:w-[70%]">
-          <Player
-            Hls={Hls}
-            source={getDataFormatForPlayer(episodeStreaming.sources)}
-            color="#FF0000"
-            poster={animeInfo.image}
-            className="w-full h-full"
-            playerRef={playerRef}
-          />
+          {frame.isFrame ? (
+            <Player
+              Hls={Hls}
+              source={getDataFormatForPlayer(episodeStreaming.sources)}
+              color="#FF0000"
+              poster={animeInfo.image}
+              className="w-full h-full"
+              playerRef={playerRef}
+            />
+          ) : (
+            <div className="w-full aspect-video bg-gray-800 flex items-center justify-center" />
+          )}
+
           <h4 className="mt-5">{formatEpisodeTitle(slug[1])}</h4>
-          <div className="pl-3 mt-2 flex gap-3">
+          <div className="mt-2 flex gap-3">
+            <Button onClick={() => dispatch(toggleFrame())} variant={"outline"}>
+              {frame.message}
+            </Button>
             <Button className="rounded-full flex items-center bg-orange-700 hover:bg-orange-500 gap-2">
               <p>Like</p> <AiFillLike />
             </Button>
@@ -130,7 +141,7 @@ const WatchPage = ({
           </div>
           <InfoWatch data={animeInfo} />
           <Container title="Comments" icon={MessageCircleMore}>
-            <Comment />
+            <Comment id={animeInfo.id} />
           </Container>
         </div>
         <div className="md:w-1/3 lg:w-[20%]">
@@ -139,7 +150,6 @@ const WatchPage = ({
             relations={animeInfo?.relations}
           />
         </div>
-        {/* Có thể hiển thị thêm thông tin từ animeInfo và episodeStreaming */}
       </div>
     );
   }
