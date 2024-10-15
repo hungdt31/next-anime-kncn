@@ -1,11 +1,8 @@
 import { prisma } from "@/lib/prisma";
-import { NextResponse, NextRequest } from "next/server";
+import { NextResponse } from "next/server";
 
 // To handle a GET request to /api
-export async function GET(
-  // request : NextApiRequest,
-  request: NextRequest
-) {
+export async function GET() {
   const comment = await prisma.comment.findMany({
     select: {
       _count: {
