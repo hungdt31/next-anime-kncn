@@ -7,7 +7,7 @@ import { Button } from "../ui/button";
 import Link from "next/link";
 import path from "@/utils/path";
 import { FaCaretRight } from "react-icons/fa6";
-import { Share2 } from "lucide-react";
+import { PiBellRingingBold } from "react-icons/pi";
 
 interface InfoWatch {
   data: InfoResponse;
@@ -70,8 +70,8 @@ export default function InfoWatch({ data }: InfoWatch) {
               <p>Detail</p> <FaCaretRight />
             </Button>
           </Link>
-          <Button className="rounded-full flex items-center gap-2 bg-cyan-700 hover:bg-cyan-500">
-            <p>Share</p> <Share2 />
+          <Button className="rounded-full flex items-center gap-2">
+            <p>Follow</p> <PiBellRingingBold />
           </Button>
         </div>
       </div>

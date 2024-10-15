@@ -11,6 +11,7 @@ export async function GET(
 ) {
   const animeId = request.nextUrl.searchParams.get("animeId") as string;
   const parentId = request.nextUrl.searchParams.get("parentId") as string;
+  const createdAt = request.nextUrl.searchParams.get("createdAt") as string;
   const comment = await prisma.comment.findMany({
     where: {
       parentId,
@@ -29,6 +30,9 @@ export async function GET(
       animeId: true,
       animeName: true,
       parentId: true
+    },
+    orderBy: {
+      createdAt: createdAt == "asc" ? "asc" : "desc"
     }
   });
   if (!comment)
@@ -68,6 +72,8 @@ export async function POST(request: Request) {
     );
   const comment = await prisma.comment.create({
     data: {
+      animeCover: anime.cover,
+      animeColor: anime.color || "#adb5bd",
       animeId: anime.id,
       animeName: getAnimeTitle(anime.title) as string,
       userId,

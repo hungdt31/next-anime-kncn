@@ -3,7 +3,7 @@ import { TrendingAnime, TrendingResponse } from "@/types/anime/trending";
 import { InfoResponse } from "@/types/anime/info";
 import { PopularAnime, PopularResponse } from "@/types/anime/popular";
 import { client, service } from "@/data/base";
-// import { streaming } from "@/data/base";
+import { Like } from "@/types/utils";
 import { TopAiringAnime, TopAiringAnimeResponse } from "@/types/anime/airing-schedule";
 import { SearchAnime, SearchAnimeResponse } from "@/types/anime/search";
 import { SearchAdvancedQuery } from "@/types/anime/advanced-search";
@@ -188,11 +188,12 @@ export const getAnimeToWatch = async (id: string, ep: string) => {
   return data;
 }
 
-export const getCommentForAnime = async (animeId: string, parentId: string) => {
+export const getCommentForAnime = async (animeId: string, parentId: string, createdAt: string) => {
   const response = await service.get<CommentResponse>("/comment", {
     params: {
       parentId,
-      animeId
+      animeId,
+      createdAt
     }
   })
   return response.data.data;
@@ -205,5 +206,20 @@ export const getOneCommentForAnime = async (id: string) => {
     }
   })
   return response.data;
+}
+
+export const getLikeFromUserForComment = async (userId: string, commentId: string) => {
+  const response = await service.get<Like>("/like", {
+    params: {
+      userId,
+      commentId
+    }
+  })
+  return response.data.data
+}
+
+export const getCommentsForHomePage = async () => {
+  const response = await service.get<CommentResponse>("/comment/some")
+  return response.data.data
 }
 

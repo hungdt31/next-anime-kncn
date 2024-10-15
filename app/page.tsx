@@ -5,6 +5,7 @@ import Slider from "@/components/slider";
 import CompletedAnime from "@/components/completed";
 import MovieAnime from "@/components/movie";
 import SeasonAnime from "@/components/season";
+import Feedback from "@/components/discussion";
 
 export default function Home() {
   return (
@@ -14,6 +15,7 @@ export default function Home() {
       <PopularAnime />
       <CompletedAnime />
       <MovieAnime />
+      <Feedback/>
       <SeasonAnime />
     </main>
   );

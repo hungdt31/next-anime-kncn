@@ -81,6 +81,8 @@ export interface Comment {
   name: string;
   animeId: string,
   animeName: string,
+  animeColor: string,
+  animeCover: string,
   user: User;
   parentId: string;
   children: Comment[]
@@ -92,4 +94,13 @@ export interface Comment {
 }
 export interface CommentResponse {
   data: Comment[];
+}
+
+export interface Like {
+  data: {
+    id: string,
+    userId: string,
+    commentId: string
+  },
+  message: string
 }

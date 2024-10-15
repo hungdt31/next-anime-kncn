@@ -80,6 +80,8 @@ model Comment {
 
   animeId   String
   animeName String
+  animeCover  String
+  animeColor  String
 
   children  Comment[] @relation("CommentToComment")
   parent    Comment?  @relation("CommentToComment", fields: [parentId], references: [id], onDelete: NoAction, onUpdate: NoAction)

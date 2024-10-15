@@ -1,4 +1,5 @@
 import { Title } from "@/types/utils";
+import { time } from "console";
 export const getAnimeTitle = (title: Title) => {
   return typeof title !== "string"
     ? title.english || title.native || title.romaji || title.userPreferred
@@ -63,8 +64,8 @@ export const providers = [
   },
 ];
 
-export const calculateCreatedTime = (timeCreated: Date) => {
-  const periods: any = {
+export const calculateCreatedTime = (timeCreated: Date): string => {
+  const periods: { [key: string]: number } = {
     year: 365 * 30 * 24 * 60 * 60 * 1000,
     month: 30 * 24 * 60 * 60 * 1000,
     week: 7 * 24 * 60 * 60 * 1000,
@@ -73,14 +74,31 @@ export const calculateCreatedTime = (timeCreated: Date) => {
     minute: 60 * 1000,
   };
 
-  const diff = Date.now() - +new Date(`${timeCreated}`);
+  const diff: number = Date.now() - timeCreated.getTime();
 
   for (const key in periods) {
-    if (diff >= Number(periods[key])) {
-      const result = Math.floor(diff / Number(periods[key]));
+    if (diff >= periods[key]) {
+      const result: number = Math.floor(diff / periods[key]);
       return `${result} ${result === 1 ? key : key + "s"} ago`;
     }
   }
 
   return "Just now";
+};
+
+export const getCreatedTime = (timeCreated: Date): string => {
+  const options: Intl.DateTimeFormatOptions = {
+    weekday: "long", // Lấy ngày trong tuần (Thứ hai, Thứ ba,...)
+    day: "2-digit",  // Định dạng ngày với 2 chữ số
+    month: "2-digit", // Định dạng tháng với 2 chữ số
+    year: "numeric",  // Định dạng năm đầy đủ
+    hour: "2-digit",  // Định dạng giờ với 2 chữ số
+    minute: "2-digit", // Định dạng phút với 2 chữ số
+    hour12: false,    // Sử dụng định dạng 24h (không có AM/PM)
+  };
+
+  // Lấy ra chuỗi ngày định dạng theo Tiếng Việt
+  const formattedDate = timeCreated.toLocaleDateString("en-US", options);
+
+  return formattedDate.charAt(0).toUpperCase() + formattedDate.slice(1);
 };

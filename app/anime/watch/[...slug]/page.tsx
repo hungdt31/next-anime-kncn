@@ -20,7 +20,7 @@ import Comment from "@/components/comment";
 import { MessageCircleMore } from "lucide-react";
 import MoreLikeThis from "@/components/watch/more-like-this";
 import { AiFillLike } from "react-icons/ai";
-import { PiBellRingingBold } from "react-icons/pi";
+import { Share2 } from "lucide-react";
 import { useAppSelector, useAppDispatch } from "@/hooks";
 import { toggleFrame, selectFrame } from "@/hooks/slices/use-isframe";
 
@@ -97,7 +97,6 @@ const WatchPage = ({
       InfoResponse,
       AnimeEpisodeStreaming
     ];
-
     return (
       <div className="mt-[80px] flex gap-5 py-5 px-3 md:flex-row flex-col justify-center">
         <div className="md:w-2/3 lg:w-[70%]">
@@ -122,12 +121,12 @@ const WatchPage = ({
             <Button className="rounded-full flex items-center bg-orange-700 hover:bg-orange-500 gap-2">
               <p>Like</p> <AiFillLike />
             </Button>
-            <Button className="rounded-full flex items-center gap-2">
-              <p>Follow</p> <PiBellRingingBold />
+            <Button className="rounded-full flex items-center gap-2 bg-cyan-700 hover:bg-cyan-500">
+              <p>Share</p> <Share2 />
             </Button>
           </div>
           <div className="flex gap-3 py-5 overflow-scroll">
-            {animeInfo.episodes.map((item: Episode, index: number) => {
+            {animeInfo?.episodes.map((item: Episode, index: number) => {
               return (
                 <Link href={path.watch(slug[0], item.id)} key={index}>
                   <Button
