@@ -12,6 +12,7 @@ import { convertQueryArrayParams } from "@/utils/constant";
 import { CommentResponse } from "@/types/utils";
 export const default_provider = "gogoanime";
 import { Comment } from "@/types/utils";
+import { LikeCount } from "@/types/utils";
 
 // Using the example id of "21" (one piece) and the query of "gogoanime"
 export const getAnimeInfo = async (id: string = '1') => {
@@ -220,6 +221,16 @@ export const getLikeFromUserForComment = async (userId: string, commentId: strin
 
 export const getCommentsForHomePage = async () => {
   const response = await service.get<CommentResponse>("/comment/some")
+  return response.data.data
+}
+
+export const getLikeCountForEpisode = async (episodeId: string, userId: string) => {
+  const response = await service.get<LikeCount>("/like-episode", {
+    params: {
+      episodeId,
+      userId
+    }
+  })
   return response.data.data
 }
 

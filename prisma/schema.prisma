@@ -48,6 +48,7 @@ model User {
   list          List[]
   comment       Comment[]
   like          Like[]
+  likedEpisodes LikedEpisode[]
 }
 
 model VerificationToken {
@@ -99,4 +100,14 @@ model Like {
   commentId String  
   user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
   userId    String
+}
+
+model LikedEpisode {
+  id        String   @id @default(cuid()) @map("_id")
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId    String
+  episodeId String
+  createdAt DateTime @default(now())
+
+  @@unique([userId, episodeId])
 }

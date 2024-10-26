@@ -19,10 +19,11 @@ import Container from "@/components/layout/container";
 import Comment from "@/components/comment";
 import { MessageCircleMore } from "lucide-react";
 import MoreLikeThis from "@/components/watch/more-like-this";
-import { AiFillLike } from "react-icons/ai";
-import { Share2 } from "lucide-react";
+import { useSession } from "next-auth/react";
+import { IoIosShareAlt } from "react-icons/io";
 import { useAppSelector, useAppDispatch } from "@/hooks";
 import { toggleFrame, selectFrame } from "@/hooks/slices/use-isframe";
+import LikeEpisode from "@/components/like-episode";
 
 const getDataFormatForPlayer = (videos: Source[]) => {
   const rs = [];
@@ -62,6 +63,7 @@ const WatchPage = ({
   };
 }) => {
   const { slug } = params || {};
+  const { data: session } = useSession();
   const router = useRouter();
   const playerRef = useRef<HTMLVideoElement | null>(null);
   const dispatch = useAppDispatch();
@@ -113,17 +115,19 @@ const WatchPage = ({
             <div className="w-full aspect-video bg-gray-800 flex items-center justify-center" />
           )}
 
-          <h4 className="mt-5">{formatEpisodeTitle(slug[1])}</h4>
+          <h4 className="mt-5 mb-2">{formatEpisodeTitle(slug[1])}</h4>
           <div className="mt-2 flex gap-3">
             <Button onClick={() => dispatch(toggleFrame())} variant={"outline"}>
               {frame.message}
             </Button>
-            <Button className="rounded-full flex items-center bg-orange-700 hover:bg-orange-500 gap-2">
-              <p>Like</p> <AiFillLike />
-            </Button>
-            <Button className="rounded-full flex items-center gap-2 bg-cyan-700 hover:bg-cyan-500">
-              <p>Share</p> <Share2 />
-            </Button>
+            <LikeEpisode userId={session?.user.id} episodeId={slug[1]} />
+            <Link href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(
+              `${process.env.NEXT_PUBLIC_NEXT_ANIME_URL}${path.watch(slug[0], slug[1])}`
+            )}&t=${slug[1]}`}>
+              <Button className="rounded-full bg-cyan-700 hover:bg-cyan-500">
+                <p className="mr-1">Share</p> <IoIosShareAlt />
+              </Button>
+            </Link>
           </div>
           <div className="flex gap-3 py-5 overflow-scroll">
             {animeInfo?.episodes.map((item: Episode, index: number) => {

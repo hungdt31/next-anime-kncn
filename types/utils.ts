@@ -104,3 +104,10 @@ export interface Like {
   },
   message: string
 }
+
+export interface LikeCount {
+  data: {
+    count: number,
+    userLike: boolean
+  }
+}
