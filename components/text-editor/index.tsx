@@ -69,7 +69,7 @@ export default function TextEditor({
     );
   };
   return (
-    <div className="border-border border-2 shadow-lg p-3 mt-5 mb-3 lg:w-[70%]">
+    <div className="shadow-lg p-3 mt-5 mb-3 lg:w-[70%]">
       <EditorProvider
         immediatelyRender={false}
         slotBefore={<MenuBar />}

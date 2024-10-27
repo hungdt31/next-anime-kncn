@@ -120,7 +120,7 @@ const WatchPage = ({
             <Button onClick={() => dispatch(toggleFrame())} variant={"outline"}>
               {frame.message}
             </Button>
-            <LikeEpisode userId={session?.user.id} episodeId={slug[1]} />
+            {session?.user && <LikeEpisode userId={session.user.id} episodeId={slug[1]} />}
             <Link href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(
               `${process.env.NEXT_PUBLIC_NEXT_ANIME_URL}${path.watch(slug[0], slug[1])}`
             )}&t=${slug[1]}`}>
