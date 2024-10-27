@@ -53,10 +53,10 @@ const SignInForm = () => {
         </CardHeader>
         <CardContent>
           <div className="flex gap-5 flex-wrap mb-5 justify-center">
-            <button onClick={() => handleSignIn("github")} className="border-2 dark:border-white dark:text-white dark:bg-black flex items-center p-3 shadow-md">
+            <button onClick={() => handleSignIn("github")} className="dark:border-2 dark:border-white dark:text-white dark:bg-black flex items-center p-3 shadow-md">
               <FaGithub className="mr-3" /> Sign In with GitHub
             </button>
-            <button onClick={() => handleSignIn("google")} className="border-2 dark:border-white dark:text-white dark:bg-black flex items-center p-3 shadow-md">
+            <button onClick={() => handleSignIn("google")} className="dark:border-2 dark:border-white dark:text-white dark:bg-black flex items-center p-3 shadow-md">
               <FcGoogle className="mr-3" /> Sign In with Google
             </button>
           </div>

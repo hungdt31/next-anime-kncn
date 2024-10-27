@@ -13,7 +13,7 @@ import { CreateNewComment } from "@/action/comment";
 import { useAppDispatch, useAppSelector } from "@/hooks";
 import { Button } from "../ui/button";
 import { disableFrame, selectFrame } from "@/hooks/slices/use-isframe";
-import { MessageSquareDiff } from "lucide-react";
+import { Plus } from "lucide-react";
 import {
   Select,
   SelectContent,
@@ -123,7 +123,7 @@ export default function Comment({ id }: CommentProps) {
             setLoading(false);
           }}
         >
-          <MessageSquareDiff />
+          <Plus />
           Submit
         </Button>
       </div>
