@@ -77,7 +77,7 @@ export default function DiscussionCard({
                 color: animeColor,
                 borderColor: animeColor
               }}
-              className="font-bold italic line-clamp-1 overflow-hidden rounded-lg px-2 py-1 whitespace-nowrap text-ellipsis lg:max-w-[200px] md:max-w-[180px] max-w-[150px] border-2">
+              className="font-bold italic line-clamp-1 overflow-hidden rounded-lg px-2 py-1 whitespace-nowrap text-ellipsis lg:max-w-[200px] md:max-w-[180px] max-w-[150px]">
               {animeName}
             </button>
           </Link>

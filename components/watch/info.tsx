@@ -8,12 +8,14 @@ import Link from "next/link";
 import path from "@/utils/path";
 import { FaCaretRight } from "react-icons/fa6";
 import { PiBellRingingBold } from "react-icons/pi";
+import { useSession } from "next-auth/react";
 
 interface InfoWatch {
   data: InfoResponse;
 }
 
 export default function InfoWatch({ data }: InfoWatch) {
+  const { data: session } = useSession();
   return (
     <div className="flex gap-5 w-full">
       <div className="lg:w-1/4 aspect-[16/12] md:w-1/3 hidden md:block relative">
@@ -59,9 +61,12 @@ export default function InfoWatch({ data }: InfoWatch) {
               <p>Detail</p> <FaCaretRight />
             </Button>
           </Link>
-          <Button className="rounded-full flex items-center gap-2">
-            <p>Follow</p> <PiBellRingingBold />
-          </Button>
+          {
+            session?.user &&
+            <Button className="rounded-full flex items-center gap-2">
+              <p>Follow</p> <PiBellRingingBold />
+            </Button>
+          }
         </div>
       </div>
     </div>
