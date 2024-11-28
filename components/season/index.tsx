@@ -33,13 +33,13 @@ export default function SeasonAnime() {
     return { season: selectedTab.value, year, perPage: 5 };
   }, [selectedTab, year, onlyWidth]);
 
-  
+
   useEffect(() => {
     if (mutationParams) {
       mutate(mutationParams);
     }
   }, [mutationParams]);
-  
+
   return (
     <Container title="Collection" icon={Shapes}>
       <YearPickUp onChange={setYear} />
@@ -49,9 +49,8 @@ export default function SeasonAnime() {
             {tabs.map((item) => (
               <li
                 key={item.label}
-                className={`${styles.tabItem} ${
-                  item === selectedTab ? styles.selected : ""
-                }`}
+                className={`${styles.tabItem} ${item === selectedTab ? styles.selected : ""
+                  }`}
                 onClick={() => setSelectedTab(item)}
               >
                 {`${item.icon} ${item.label}`}
@@ -65,8 +64,10 @@ export default function SeasonAnime() {
             ))}
           </ul>
         </div>
+        {isError ? <ErrorQuery /> : null}
         <div className={styles.main}>
           <AnimatePresence mode="wait">
+
             <motion.div
               key={selectedTab ? selectedTab.label : "empty"}
               initial={{ y: 10, opacity: 0 }}
@@ -76,7 +77,7 @@ export default function SeasonAnime() {
               className="grid grid-cols-1 md:grid-cols-2 gap-7 lg:grid-cols-3"
             >
               {/* {selectedTab ? selectedTab.icon : "😋"} */}
-              {isError ? <ErrorQuery /> : null}
+
               {isPending ? <SkeletonCards /> : null}
               {data?.map((anime: SearchAnime) => (
                 <SeasonItem

@@ -50,17 +50,21 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <ReduxProvider>
-          <NextAuthProvider>
-            <ReactQueryConfig>
-              <NextNProgressClient />
-              <Header/>
-              {children}
-              <Footer/>
-              <ScrollToTop/>
-              <RightDrawer/>
-              <Toaster/>
-            </ReactQueryConfig>
-          </NextAuthProvider>
+            <NextAuthProvider>
+              <ReactQueryConfig>
+                <NextNProgressClient />
+                <div className="min-h-screen flex-col flex">
+                  <Header />
+                  <div className="grow">
+                    {children}
+                  </div>
+                  <Footer />
+                </div>
+                <ScrollToTop />
+                <RightDrawer />
+                <Toaster />
+              </ReactQueryConfig>
+            </NextAuthProvider>
           </ReduxProvider>
         </ThemeProvider>
       </body>

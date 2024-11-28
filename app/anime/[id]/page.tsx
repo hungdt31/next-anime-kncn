@@ -31,7 +31,10 @@ export default function AnimeInfoPage({
     mutate(params.id);
   }, [params.id, mutate]);
   if (isPending) return <SkeletonCards />;
-  if (isError) return <ErrorQuery />;
+  if (isError) return (
+    <div className="mt-[200px]">
+      <ErrorQuery />
+    </div>);
   return (
     <div className="flex-col flex justify-center items-center">
       <div
