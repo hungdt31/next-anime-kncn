@@ -12,12 +12,13 @@ import { MdFollowTheSigns } from "react-icons/md";
 import { RiChatFollowUpFill } from "react-icons/ri";
 import { FaListUl } from "react-icons/fa";
 import { useToast } from "@/hooks/use-toast";
+import { link } from "fs";
 
 const infoData = [
-  { title: "Personal information", items: FaCircleInfo, action: () => {} },
-  { title: "List", items: FaListUl, action: () => {} },
-  { title: "Following", items: MdFollowTheSigns, action: () => {} },
-  { title: "Comment", items: RiChatFollowUpFill, action: () => {} },
+  { title: "Personal information", items: FaCircleInfo, action: () => {}, linkHref: "/profile" },
+  { title: "List", items: FaListUl, action: () => {}, linkHref: "/list" },
+  { title: "Following", items: MdFollowTheSigns, action: () => {}, linkHref: "/list" },
+  { title: "Comment", items: RiChatFollowUpFill, action: () => {}, linkHref: "/comments" },
 ];
 
 const closeDrawer = () => {
@@ -101,7 +102,7 @@ export function RightDrawer() {
             </div>
           </div>
         )}
-        <InfoGroup infoData={infoData} title="About you" />
+        <InfoGroup infoData={infoData} />
         <InfoGroup infoData={logOut} />
       </div>
     );

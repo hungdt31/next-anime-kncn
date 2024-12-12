@@ -52,6 +52,11 @@ export default function AnimeInfoPage({
               image={data.image}
               url={data?.episodes[0]?.id || ""}
               animeId={data?.id}
+              animeColor={data?.color}
+              animeImage={data?.image}
+              animeTitle={getAnimeTitle(data.title) as string}
+              animeType={data?.type}
+              nextEpisodeTime={Number(data.nextAiringEpisode)}
             />
           )}
           <div className="flex flex-col space-y-3 mx-3">

@@ -1,5 +1,6 @@
 import { Title } from "@/types/utils";
 import { time } from "console";
+import { late } from "zod";
 export const getAnimeTitle = (title: Title) => {
   return typeof title !== "string"
     ? title.english || title.native || title.romaji || title.userPreferred
@@ -102,3 +103,166 @@ export const getCreatedTime = (timeCreated: Date): string => {
 
   return formattedDate.charAt(0).toUpperCase() + formattedDate.slice(1);
 };
+
+export const SeasonConstant = [
+  {
+    label: "Winter",
+    value: "WINTER",
+  },
+  {
+    label: "Spring",
+    value: "SPRING",
+  },
+  {
+    label: "Summer",
+    value: "SUMMER",
+  },
+  {
+    label: "Fall",
+    value: "FALL",
+  }
+]
+
+export const FormatConstant = [
+  {
+    label: "TV",
+    value: "TV"
+  },
+  {
+    label: "TV_SHORT",
+    value: "TV_SHORT"
+  },
+  {
+    label: "MOVIE",
+    value: "MOVIE"
+  },
+  {
+    label: "SPECIAL",
+    value: "SPECIAL"
+  },
+  {
+    label: "OVA",
+    value: "OVA"
+  },
+  {
+    label: "ONA",
+    value: "ONA"
+  },
+  {
+    label: "MUSIC",
+    value: "MUSIC"
+  }
+]
+
+export const StatusConstant = [
+  {
+    label: "Finished",
+    value: "FINISHED"
+  },
+  {
+    label: "Releasing",
+    value: "RELEASING"
+  },
+  {
+    label: "Not yet released",
+    value: "NOT_YET_RELEASED"
+  },
+  {
+    label: "Cancelled",
+    value: "CANCELLED"
+  },
+  {
+    label: "Hiatus",
+    value: "HIATUS"
+  }
+]
+
+export const SortConstant = [
+  { label: "Popularity (Descending)", value: "POPULARITY_DESC" },
+  { label: "Popularity (Ascending)", value: "POPULARITY" },
+  { label: "Trending (Descending)", value: "TRENDING_DESC" },
+  { label: "Trending (Ascending)", value: "TRENDING" },
+  { label: "Updated At (Descending)", value: "UPDATED_AT_DESC" },
+  { label: "Updated At (Ascending)", value: "UPDATED_AT" },
+  { label: "Start Date (Descending)", value: "START_DATE_DESC" },
+  { label: "Start Date (Ascending)", value: "START_DATE" },
+  { label: "End Date (Descending)", value: "END_DATE_DESC" },
+  { label: "End Date (Ascending)", value: "END_DATE" },
+  { label: "Favourites (Descending)", value: "FAVOURITES_DESC" },
+  { label: "Favourites (Ascending)", value: "FAVOURITES" },
+  { label: "Score (Descending)", value: "SCORE_DESC" },
+  { label: "Score (Ascending)", value: "SCORE" },
+  { label: "Title (Romaji, Descending)", value: "TITLE_ROMAJI_DESC" },
+  { label: "Title (Romaji, Ascending)", value: "TITLE_ROMAJI" },
+  { label: "Title (English, Descending)", value: "TITLE_ENGLISH_DESC" },
+  { label: "Title (English, Ascending)", value: "TITLE_ENGLISH" },
+  { label: "Title (Native, Descending)", value: "TITLE_NATIVE_DESC" },
+  { label: "Title (Native, Ascending)", value: "TITLE_NATIVE" },
+  { label: "Episodes (Descending)", value: "EPISODES_DESC" },
+  { label: "Episodes (Ascending)", value: "EPISODES" },
+  { label: "ID (Descending)", value: "ID_DESC" },
+  { label: "ID (Ascending)", value: "ID" }
+];
+
+export const Genres = [
+  {
+    label: "Action",
+    value: "Action"
+  },
+  {
+    label: "Adventure",
+    value: "Adventure"
+  },
+  {
+    label: "Comedy",
+    value: "Comedy"
+  },
+  {
+    label: "Drama",
+    value: "Drama"
+  },
+  {
+    label: "Fantasy",
+    value: "Fantasy"
+  },
+  {
+    label: "Horror",
+    value: "Horror"
+  },
+  {
+    label: "Mecha",
+    value: "Mecha"
+  },
+  {
+    label: "Music",
+    value: "Music"
+  },
+  {
+    label: "Mystery",
+    value: "Mystery"
+  },
+  {
+    label: "Psychological",
+    value: "Psychological"
+  },
+  {
+    label: "Romance",
+    value: "Romance"
+  },
+  {
+    label: "Sci-Fi",
+    value: "Sci-Fi"
+  },
+  {
+    label: "Slice of Life",
+    value: "Slice of Life"
+  },
+  {
+    label: "Sports",
+    value: "Sports"
+  },
+  {
+    label: "Supernatural",
+    value: "Supernatural"
+  }
+]

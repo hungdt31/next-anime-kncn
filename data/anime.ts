@@ -234,3 +234,34 @@ export const getLikeCountForEpisode = async (episodeId: string, userId: string) 
   return response.data.data
 }
 
+export const getListForUser = async ({userId}:{userId: string}) => {
+  const response = await fetch(`${process.env.NEXT_PUBLIC_FRONT_END_URL}/list?userId=${userId}`, {
+    method: "GET",
+    headers: {
+      'Content-Type': 'application/json', // Đặt kiểu dữ liệu cho request
+    },
+  })
+  if (!response.ok) {
+    throw new Error('Failed to like the episode');
+  }
+
+  const res = await response.json();
+  return res.data; // Trả về dữ liệu nhận được từ API
+}
+
+export const checkList = async ({userId, animeId}:{userId: string, animeId: string}) => {
+  const response = await fetch(`${process.env.NEXT_PUBLIC_FRONT_END_URL}/list`, {
+    method: "PUT",
+    headers: {
+      'Content-Type': 'application/json', // Đặt kiểu dữ liệu cho request
+    },
+    body: JSON.stringify({ userId, animeId})
+  })
+  if (!response.ok) {
+    throw new Error('Failed to get list');
+  }
+
+  const res = await response.json();
+  return res.isExist; // Trả về dữ liệu nhận được từ API
+}
+
