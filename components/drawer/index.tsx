@@ -12,7 +12,6 @@ import { MdFollowTheSigns } from "react-icons/md";
 import { RiChatFollowUpFill } from "react-icons/ri";
 import { FaListUl } from "react-icons/fa";
 import { useToast } from "@/hooks/use-toast";
-import { link } from "fs";
 
 const infoData = [
   { title: "Personal information", items: FaCircleInfo, action: () => {}, linkHref: "/profile" },

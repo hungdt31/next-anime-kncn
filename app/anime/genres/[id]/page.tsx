@@ -1,7 +1,6 @@
 "use client"
 import { AnimeCard } from '@/components/anime'
 import { SkeletonCards } from '@/components/loading/skeleton'
-import { Skeleton } from '@/components/ui/skeleton'
 import { searchAdvanced } from '@/data/anime'
 import { convertQueryArrayParams } from '@/utils/constant'
 import { useQuery } from '@tanstack/react-query'

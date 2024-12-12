@@ -1,7 +1,7 @@
 "use client";
 import Container from '@/components/layout/container'
 import React, { useEffect } from 'react'
-import { useMutation, useQuery } from '@tanstack/react-query'
+import { useMutation } from '@tanstack/react-query'
 import { getListForUser } from '@/data/anime'
 import { AnimeCard } from '@/components/anime'
 import { useSession } from 'next-auth/react';
@@ -9,7 +9,6 @@ import { SkeletonCards } from '@/components/loading/skeleton';
 import { Button } from '@/components/ui/button';
 import { CircleX, X } from 'lucide-react';
 import { DeleteAnimeFromList } from '@/action/list';
-import { constants } from 'fs/promises';
 
 interface Anime {
   animeColor: string,

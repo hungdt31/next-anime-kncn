@@ -7,7 +7,7 @@ import { advancedSearchSchema } from '@/schemas/search'
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 import { z } from "zod"
-import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form'
+import { Form, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form'
 import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
 import {
@@ -69,14 +69,17 @@ export default function Page() {
 
   function onSubmit(values: z.infer<typeof advancedSearchSchema>) {
     // console.log(values);
+    /* eslint-disable */
     values.sort = convertQueryArrayParams([values.sort as string]) as any;
     if (array.length)
+      /* eslint-disable */
       mutate({
         ...values,
         perPage: 1000,
         genres: convertQueryArrayParams(array)
       } as any);
     else
+      /* eslint-disable */
       mutate({
         ...values,
         perPage: 1000,
