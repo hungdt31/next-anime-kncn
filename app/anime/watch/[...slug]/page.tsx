@@ -24,6 +24,7 @@ import { IoIosShareAlt } from "react-icons/io";
 import { useAppSelector, useAppDispatch } from "@/hooks";
 import { toggleFrame, selectFrame } from "@/hooks/slices/use-isframe";
 import LikeEpisode from "@/components/like-episode";
+import Iframe from 'react-iframe'
 
 const getDataFormatForPlayer = (videos: Source[]) => {
   const rs = [];
@@ -103,18 +104,40 @@ const WatchPage = ({
       <div className="mt-[80px] flex gap-5 py-5 px-3 md:flex-row flex-col justify-center">
         <div className="md:w-2/3 lg:w-[70%]">
           {frame.isFrame ? (
-            <Player
-              Hls={Hls}
-              source={getDataFormatForPlayer(episodeStreaming.sources)}
-              color="#FF0000"
-              poster={animeInfo.image}
-              className="w-full h-full"
-              playerRef={playerRef}
-            />
+            // <Player
+            //   Hls={Hls}
+            //   source={getDataFormatForPlayer(episodeStreaming.sources)}
+            //   color="#FF0000"
+            //   poster={animeInfo.image}
+            //   className="w-full h-full"
+            //   playerRef={playerRef}
+            // />
+            //           <video
+            //   id="my-video"
+            //   className="video-js"
+            //   controls
+            //   preload="auto"
+            //   width="640"
+            //   height="264"
+            //   poster="MY_VIDEO_POSTER.jpg"
+            //   data-setup="{}"
+            // >
+            //   {episodeStreaming.sources && <source src={episodeStreaming.sources[0].url} type="application/x-mpegURL" />}
+            //   {/* <p className="vjs-no-js">
+            //     To view this video please enable JavaScript, and consider upgrading to a
+            //     web browser that
+            //     <a href="https://videojs.com/html5-video-support/" target="_blank"
+            //       >supports HTML5 video</a
+            //     >
+            //   </p> */}
+            // </video>
+            <Iframe url={episodeStreaming.headers.Referer}
+              className="w-full aspect-video bg-gray-800 flex items-center justify-center"
+              display="block"
+              position="relative" />
           ) : (
             <div className="w-full aspect-video bg-gray-800 flex items-center justify-center" />
           )}
-
           <h4 className="mt-5 mb-2">{formatEpisodeTitle(slug[1])}</h4>
           <div className="mt-2 flex gap-3">
             <Button onClick={() => dispatch(toggleFrame())} variant={"outline"}>

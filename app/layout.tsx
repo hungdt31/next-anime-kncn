@@ -11,7 +11,7 @@ import Header from "@/components/header";
 import ReduxProvider from "@/hooks/redux-provider";
 import ScrollToTop from "@/components/common/scroll-to-top";
 import "react-lazy-load-image-component/src/effects/blur.css";
-import 'react-lite-youtube-embed/dist/LiteYouTubeEmbed.css'
+import 'react-lite-youtube-embed/dist/LiteYouTubeEmbed.css';
 import Footer from "@/components/footer";
 
 const geistSans = localFont({

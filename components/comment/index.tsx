@@ -12,8 +12,8 @@ import Spinner from "../loading/spinner";
 import { CreateNewComment } from "@/action/comment";
 import { useAppDispatch, useAppSelector } from "@/hooks";
 import { Button } from "../ui/button";
-import { disableFrame, selectFrame } from "@/hooks/slices/use-isframe";
-import { Plus } from "lucide-react";
+import { selectFrame } from "@/hooks/slices/use-isframe";
+import { CircleArrowRight } from "lucide-react";
 import {
   Select,
   SelectContent,
@@ -105,13 +105,14 @@ export default function Comment({ id }: CommentProps) {
         <TextEditor
           onChange={setComment}
           defaultContent={"Write your comment here..."}
-          focusFunc={() => {
-            if (frame.isFrame) dispatch(disableFrame());
-          }}
+          // focusFunc={() => {
+          //   if (frame.isFrame) dispatch(disableFrame());
+          // }}
         />
         <Button
           disabled={loading}
-          className="text-center flex items-center gap-3"
+          variant={"outline"}
+          className="text-center flex items-center gap-3 text-primary border-primary border-0 hover:text-primary"
           onClick={async () => {
             setLoading(true);
             await CreateNewComment({
@@ -123,8 +124,9 @@ export default function Comment({ id }: CommentProps) {
             setLoading(false);
           }}
         >
-          <Plus />
           Submit
+          <CircleArrowRight />
+
         </Button>
       </div>
       <Select
