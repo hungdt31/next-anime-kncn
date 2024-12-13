@@ -2,14 +2,14 @@
 import path from "@/utils/path";
 import { getAnimeToWatch } from "@/data/anime";
 import { useMutation } from "@tanstack/react-query";
-import { useEffect, useRef } from "react";
+import { useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { InfoResponse } from "@/types/anime/info";
 import { SkeletonCards } from "@/components/loading/skeleton";
 import ErrorQuery from "@/components/common/error-query";
 // import Player from "@/components/player";
 import { AnimeEpisodeStreaming } from "@/types/anime/episode-streaming-links";
-import { Source } from "@/types/anime/episode-streaming-links";
+// import { Source } from "@/types/anime/episode-streaming-links";
 // import Hls from "hls.js";
 import { Episode } from "@/types/utils";
 import { Button } from "@/components/ui/button";

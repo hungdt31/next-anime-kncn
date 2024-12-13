@@ -10,9 +10,9 @@ import ErrorQuery from "../common/error-query";
 import Link from "next/link";
 import Spinner from "../loading/spinner";
 import { CreateNewComment } from "@/action/comment";
-import { useAppDispatch, useAppSelector } from "@/hooks";
+// import { useAppDispatch, useAppSelector } from "@/hooks";
 import { Button } from "../ui/button";
-import { selectFrame } from "@/hooks/slices/use-isframe";
+// import { selectFrame } from "@/hooks/slices/use-isframe";
 import { CircleArrowRight } from "lucide-react";
 import {
   Select,
