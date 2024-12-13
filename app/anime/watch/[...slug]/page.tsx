@@ -7,10 +7,10 @@ import { useRouter } from "next/navigation";
 import { InfoResponse } from "@/types/anime/info";
 import { SkeletonCards } from "@/components/loading/skeleton";
 import ErrorQuery from "@/components/common/error-query";
-import Player from "@/components/player";
+// import Player from "@/components/player";
 import { AnimeEpisodeStreaming } from "@/types/anime/episode-streaming-links";
 import { Source } from "@/types/anime/episode-streaming-links";
-import Hls from "hls.js";
+// import Hls from "hls.js";
 import { Episode } from "@/types/utils";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
@@ -26,18 +26,18 @@ import { toggleFrame, selectFrame } from "@/hooks/slices/use-isframe";
 import LikeEpisode from "@/components/like-episode";
 import Iframe from 'react-iframe'
 
-const getDataFormatForPlayer = (videos: Source[]) => {
-  const rs = [];
-  for (const video of videos) {
-    if (video.isM3U8) {
-      rs.push({
-        label: video.quality,
-        url: video.url,
-      });
-    }
-  }
-  return rs;
-};
+// const getDataFormatForPlayer = (videos: Source[]) => {
+//   const rs = [];
+//   for (const video of videos) {
+//     if (video.isM3U8) {
+//       rs.push({
+//         label: video.quality,
+//         url: video.url,
+//       });
+//     }
+//   }
+//   return rs;
+// };
 
 function formatEpisodeTitle(slug: string): string {
   // Split the string by hyphens
@@ -66,7 +66,7 @@ const WatchPage = ({
   const { slug } = params || {};
   const { data: session } = useSession();
   const router = useRouter();
-  const playerRef = useRef<HTMLVideoElement | null>(null);
+  // const playerRef = useRef<HTMLVideoElement | null>(null);
   const dispatch = useAppDispatch();
   const frame = useAppSelector(selectFrame);
   // Sử dụng useMutation để lấy dữ liệu từ API

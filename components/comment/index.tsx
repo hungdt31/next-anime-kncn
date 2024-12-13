@@ -83,8 +83,8 @@ RecursiveComment.displayName = "RecursiveComment";
 export default function Comment({ id }: CommentProps) {
   const { data: session } = useSession();
   const [sortTime, setSortTime] = useState<string>("desc");
-  const dispatch = useAppDispatch();
-  const frame = useAppSelector(selectFrame);
+  // const dispatch = useAppDispatch();
+  // const frame = useAppSelector(selectFrame);
   const [comment, setComment] = useState<string>("");
   const [loading, setLoading] = useState<boolean>(false);
 
